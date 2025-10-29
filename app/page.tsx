@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { Button, Card } from "@/components/atoms";
+import { Button, Card, Input } from "@/components/atoms";
 
 export default function Home() {
   return (
@@ -74,6 +74,7 @@ export default function Home() {
         >
           <p>Card Content</p>
         </Card>
+        <Input />
       </main>
     </div>
   );
