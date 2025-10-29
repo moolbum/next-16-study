@@ -5,4 +5,4 @@ export type ButtonProps = VariantProps<typeof buttonVariants> & {
   children?: React.ReactNode;
   className?: string;
   asChild?: boolean;
-};
+} & React.ComponentProps<"button">;
