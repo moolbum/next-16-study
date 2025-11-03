@@ -20,6 +20,7 @@ import {
   Avatar,
   Item,
   Empty,
+  Skeleton,
 } from "@/components/atoms";
 import {
   Dialog,
@@ -51,6 +52,16 @@ export default function Home() {
   >(undefined);
 
   const ACCORDION_ITEMS = [
+    {
+      value: "skeleton",
+      trigger: "Skeleton",
+      content: (
+        <div className="flex justify-center flex-col gap-6">
+          <Skeleton type="card" />
+          <Skeleton type="profile" />
+        </div>
+      ),
+    },
     {
       value: "empty",
       trigger: "Empty",
