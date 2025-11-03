@@ -18,7 +18,7 @@ import {
   Command,
   DropdownMenu,
 } from "@/components/atoms";
-import { Dialog, AlertDialog } from "@/components/molecule";
+import { Dialog, AlertDialog, DatePicker } from "@/components/molecule";
 import { AlertCircleIcon } from "lucide-react";
 import { DateRange } from "react-day-picker";
 import { toast } from "sonner";
@@ -36,8 +36,32 @@ export default function Home() {
   const [selectedDateRange, setSelectedDateRange] = useState<
     DateRange | undefined
   >(undefined);
+  const [selectedDate, setSelectedDate] = useState<Date | undefined>(undefined);
 
   const ACCORDION_ITEMS_1 = [
+    {
+      value: "date-picker",
+      trigger: "Date Picker",
+      content: (
+        <div className="flex justify-center items-center flex-col gap-2">
+          <DatePicker
+            placeholder="YYYY.MM.DD"
+            date={selectedDate}
+            onSelect={(date: Date | undefined) => {
+              setSelectedDate(date);
+            }}
+          />
+          <DatePicker
+            disabled
+            placeholder="YYYY.MM.DD (disabled)"
+            date={selectedDate}
+            onSelect={(date: Date | undefined) => {
+              setSelectedDate(date);
+            }}
+          />
+        </div>
+      ),
+    },
     {
       value: "dropdown-menu",
       trigger: "Dropdown Menu",
