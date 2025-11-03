@@ -34,27 +34,40 @@ export const Command = ({
       <CommandInput placeholder={placeholder} />
       <CommandList>
         <CommandEmpty>{emptyMessage}</CommandEmpty>
-        {groupsToRender.map((group, groupIndex) => (
-          <React.Fragment key={groupIndex}>
-            <CommandGroup heading={group.heading}>
-              {group.items.map((item, itemIndex) => (
-                <CommandItem
-                  key={item.value || itemIndex}
-                  value={item.value || item.label}
-                  disabled={item.disabled}
-                  onSelect={item.onSelect}
-                >
-                  {item.icon}
-                  <span>{item.label}</span>
-                  {item.shortcut && (
-                    <CommandShortcut>{item.shortcut}</CommandShortcut>
-                  )}
-                </CommandItem>
-              ))}
-            </CommandGroup>
-            {groupIndex < groupsToRender.length - 1 && <CommandSeparator />}
-          </React.Fragment>
-        ))}
+        {groupsToRender.map((group, groupIndex) => {
+          const { heading, items, ...groupProps } = group;
+          return (
+            <React.Fragment key={groupIndex}>
+              <CommandGroup heading={heading} {...groupProps}>
+                {items.map((item, itemIndex) => {
+                  const {
+                    label,
+                    value,
+                    shortcut,
+                    icon,
+                    onSelect,
+                    ...itemProps
+                  } = item;
+                  return (
+                    <CommandItem
+                      key={value || itemIndex}
+                      value={value || label}
+                      onSelect={onSelect}
+                      {...itemProps}
+                    >
+                      {icon}
+                      <span>{label}</span>
+                      {shortcut && (
+                        <CommandShortcut>{shortcut}</CommandShortcut>
+                      )}
+                    </CommandItem>
+                  );
+                })}
+              </CommandGroup>
+              {groupIndex < groupsToRender.length - 1 && <CommandSeparator />}
+            </React.Fragment>
+          );
+        })}
       </CommandList>
     </CommandComponent>
   );
