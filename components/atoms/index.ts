@@ -9,3 +9,4 @@ export * from "./Textarea/Textarea";
 export * from "./Tooltip/Tooltip";
 export * from "./Alert/Alert";
 export * from "./Accordion/Accordion";
+export * from "./Popover/Popover";

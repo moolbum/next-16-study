@@ -12,12 +12,14 @@ import {
   Tooltip,
   Alert,
   Accordion,
+  Popover,
 } from "@/components/atoms";
 import { Dialog, AlertDialog } from "@/components/molecule";
 import { AlertCircleIcon } from "lucide-react";
 
 export default function Home() {
   const [isOpen, setIsOpen] = useState(false);
+  const [isPopoverOpen, setIsPopoverOpen] = useState(false);
   const [isAlertDialogOpen, setIsAlertDialogOpen] = useState(false);
   const [selectedOption, setSelectedOption] = useState<string | undefined>(
     undefined
@@ -39,6 +41,16 @@ export default function Home() {
   return (
     <div className="p-4 flex flex-col gap-2">
       <main className="flex flex-col gap-2 max-w-3xl mx-auto">
+        <Popover
+          open={isPopoverOpen}
+          onOpenChange={setIsPopoverOpen}
+          trigger={<Button className="flex-1">Popover 열기</Button>}
+          content={
+            <div className="w-40 rounded-md">
+              <p>Popover Content</p>
+            </div>
+          }
+        />
         <Accordion
           type="multiple"
           onValueChange={(value) => console.log("click", value)}
