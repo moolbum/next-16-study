@@ -5,3 +5,4 @@ export * from "./Checkbox/Checkbox";
 export * from "./Label/Label";
 export * from "./Select/Select";
 export * from "./Switch/Switch";
+export * from "./Textarea/Textarea";
