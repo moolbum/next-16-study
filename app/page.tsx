@@ -11,9 +11,11 @@ import {
   Textarea,
   Tooltip,
   Alert,
+  Accordion,
 } from "@/components/atoms";
 import { Dialog } from "@/components/molecule";
 import { AlertCircleIcon } from "lucide-react";
+import { AccordionItemType } from "@/components/atoms/Accordion/Accordion.type";
 
 export default function Home() {
   const [isOpen, setIsOpen] = useState(false);
@@ -21,9 +23,27 @@ export default function Home() {
     undefined
   );
 
+  const ACCORDION_ITEMS = [
+    {
+      value: "item-1",
+      trigger: "Item 1",
+      content: "Item 1 content",
+    },
+    {
+      value: "item-2",
+      trigger: "Item 2",
+      content: "Item 2 content",
+    },
+  ];
+
   return (
     <div className="p-4 flex flex-col gap-2">
       <main className="flex flex-col gap-2 max-w-3xl mx-auto">
+        <Accordion
+          type="multiple"
+          onValueChange={(value) => console.log("click", value)}
+          items={ACCORDION_ITEMS}
+        />
         <Alert
           icon={<Tooltip trigger={<AlertCircleIcon />}>test tooltip</Tooltip>}
           title="Alert Title"
