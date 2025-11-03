@@ -1,6 +1,6 @@
 "use client";
 import { useState } from "react";
-import { Checkbox, Button, Card, Input } from "@/components/atoms";
+import { Checkbox, Button, Card, Input, Label } from "@/components/atoms";
 import { Dialog } from "@/components/molecule";
 
 export default function Home() {
@@ -9,6 +9,8 @@ export default function Home() {
   return (
     <div className="p-4 flex flex-col gap-2">
       <main className="flex flex-col gap-2 max-w-3xl mx-auto">
+        <Label htmlFor="name">Label</Label>
+
         <Input />
         <Checkbox />
         <div className="flex gap-2">
