@@ -18,6 +18,7 @@ import {
   Command,
   DropdownMenu,
   Avatar,
+  Item,
 } from "@/components/atoms";
 import {
   Dialog,
@@ -49,6 +50,32 @@ export default function Home() {
   >(undefined);
 
   const ACCORDION_ITEMS = [
+    {
+      value: "item",
+      trigger: "Item",
+      content: (
+        <div className="flex justify-center items-center flex-col gap-2">
+          <Item
+            title="아이템 제목"
+            description="아이템 설명"
+            variant="default"
+            actions={<Button size="sm">확인</Button>}
+          />
+          <Item
+            title="아이템 제목"
+            description="아이템 설명"
+            variant="muted"
+            actions={<Button size="sm">확인</Button>}
+          />
+          <Item
+            title="아이템 제목"
+            description="아이템 설명"
+            variant="outline"
+            actions={<Button size="sm">확인</Button>}
+          />
+        </div>
+      ),
+    },
     {
       value: "avatar",
       trigger: "Avatar",
