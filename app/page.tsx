@@ -9,6 +9,7 @@ import {
   Select,
   Switch,
   Textarea,
+  Tooltip,
 } from "@/components/atoms";
 import { Dialog } from "@/components/molecule";
 
@@ -22,6 +23,10 @@ export default function Home() {
     <div className="p-4 flex flex-col gap-2">
       <main className="flex flex-col gap-2 max-w-3xl mx-auto">
         <Label htmlFor="name">Label</Label>
+
+        <Tooltip trigger={<Button variant="outline">Hover</Button>}>
+          test tooltip
+        </Tooltip>
 
         <Textarea />
         <Switch />
