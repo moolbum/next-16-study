@@ -7,6 +7,7 @@ import {
   Input,
   Label,
   Select,
+  Switch,
 } from "@/components/atoms";
 import { Dialog } from "@/components/molecule";
 
@@ -21,6 +22,7 @@ export default function Home() {
       <main className="flex flex-col gap-2 max-w-3xl mx-auto">
         <Label htmlFor="name">Label</Label>
 
+        <Switch />
         <Select
           options={[
             { value: "option1", label: "Option 1" },
