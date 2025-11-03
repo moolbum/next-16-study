@@ -16,7 +16,6 @@ export const Dialog = ({
   description,
   trigger,
   footer,
-
   open,
   onOpenChange,
   ...props

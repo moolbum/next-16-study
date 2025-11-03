@@ -13,12 +13,12 @@ import {
   Alert,
   Accordion,
 } from "@/components/atoms";
-import { Dialog } from "@/components/molecule";
+import { Dialog, AlertDialog } from "@/components/molecule";
 import { AlertCircleIcon } from "lucide-react";
-import { AccordionItemType } from "@/components/atoms/Accordion/Accordion.type";
 
 export default function Home() {
   const [isOpen, setIsOpen] = useState(false);
+  const [isAlertDialogOpen, setIsAlertDialogOpen] = useState(false);
   const [selectedOption, setSelectedOption] = useState<string | undefined>(
     undefined
   );
@@ -90,45 +90,57 @@ export default function Home() {
           <p>Card Content</p>
         </Card>
 
-        <Dialog
-          title="프로필 편집"
-          open={isOpen}
-          onOpenChange={setIsOpen}
-          description="프로필을 수정하세요. 완료되면 저장을 클릭하세요."
-          trigger={<Button variant="outline">Dialog 열기</Button>}
-          footer={
-            <div className="flex gap-2">
-              <Button
-                type="button"
-                variant="outline"
-                onClick={() => {
-                  setIsOpen(false);
-                }}
-              >
-                취소
-              </Button>
-              <Button
-                type="submit"
-                onClick={() => {
-                  setIsOpen(false);
-                }}
-              >
-                저장
-              </Button>
+        <div className="flex w-full gap-2">
+          <Dialog
+            title="프로필 편집"
+            open={isOpen}
+            onOpenChange={setIsOpen}
+            description="프로필을 수정하세요. 완료되면 저장을 클릭하세요."
+            trigger={<Button className="flex-1">Dialog 열기</Button>}
+            footer={
+              <div className="flex gap-2">
+                <Button
+                  type="button"
+                  variant="outline"
+                  onClick={() => {
+                    setIsOpen(false);
+                  }}
+                >
+                  취소
+                </Button>
+                <Button
+                  type="submit"
+                  onClick={() => {
+                    setIsOpen(false);
+                  }}
+                >
+                  저장
+                </Button>
+              </div>
+            }
+          >
+            <div className="grid gap-4 py-4">
+              <div className="grid gap-2">
+                <label htmlFor="name">이름</label>
+                <Input id="name" defaultValue="홍길동" />
+              </div>
+              <div className="grid gap-2">
+                <label htmlFor="username">사용자명</label>
+                <Input id="username" defaultValue="@honggildong" />
+              </div>
             </div>
-          }
-        >
-          <div className="grid gap-4 py-4">
-            <div className="grid gap-2">
-              <label htmlFor="name">이름</label>
-              <Input id="name" defaultValue="홍길동" />
-            </div>
-            <div className="grid gap-2">
-              <label htmlFor="username">사용자명</label>
-              <Input id="username" defaultValue="@honggildong" />
-            </div>
-          </div>
-        </Dialog>
+          </Dialog>
+
+          <AlertDialog
+            open={isAlertDialogOpen}
+            onOpenChange={setIsAlertDialogOpen}
+            title="Alert Dialog Title"
+            description="Alert Dialog Description"
+            trigger={<Button className="flex-1">Alert Dialog 열기</Button>}
+            action={<Button variant="outline">Action</Button>}
+            cancel={<Button variant="outline">Cancel</Button>}
+          />
+        </div>
       </main>
     </div>
   );
