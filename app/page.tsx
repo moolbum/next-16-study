@@ -13,6 +13,7 @@ import {
   Alert,
   Accordion,
   Popover,
+  Spinner,
 } from "@/components/atoms";
 import { Dialog, AlertDialog } from "@/components/molecule";
 import { AlertCircleIcon } from "lucide-react";
@@ -41,6 +42,12 @@ export default function Home() {
   return (
     <div className="p-4 flex flex-col gap-2">
       <main className="flex flex-col gap-2 max-w-3xl mx-auto">
+        <div className="flex gap-2">
+          <Spinner className="size-4" />
+          <Spinner />
+          <Spinner />
+          <Spinner />
+        </div>
         <Popover
           open={isPopoverOpen}
           onOpenChange={setIsPopoverOpen}
