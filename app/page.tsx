@@ -14,9 +14,11 @@ import {
   Accordion,
   Popover,
   Spinner,
+  Calendar,
 } from "@/components/atoms";
 import { Dialog, AlertDialog } from "@/components/molecule";
 import { AlertCircleIcon } from "lucide-react";
+import { DateRange } from "react-day-picker";
 
 export default function Home() {
   const [isOpen, setIsOpen] = useState(false);
@@ -25,91 +27,19 @@ export default function Home() {
   const [selectedOption, setSelectedOption] = useState<string | undefined>(
     undefined
   );
+  const [selectedDateSingle, setSelectedDateSingle] = useState<
+    Date | undefined
+  >(undefined);
+  const [selectedDateRange, setSelectedDateRange] = useState<
+    DateRange | undefined
+  >(undefined);
 
-  const ACCORDION_ITEMS = [
+  const ACCORDION_ITEMS_1 = [
     {
-      value: "item-1",
-      trigger: "Item 1",
-      content: "Item 1 content",
-    },
-    {
-      value: "item-2",
-      trigger: "Item 2",
-      content: "Item 2 content",
-    },
-  ];
-
-  return (
-    <div className="p-4 flex flex-col gap-2">
-      <main className="flex flex-col gap-2 max-w-3xl mx-auto">
-        <div className="flex gap-2">
-          <Spinner className="size-4" />
-          <Spinner />
-          <Spinner />
-          <Spinner />
-        </div>
-        <Popover
-          open={isPopoverOpen}
-          onOpenChange={setIsPopoverOpen}
-          trigger={<Button className="flex-1">Popover 열기</Button>}
-          content={
-            <div className="w-40 rounded-md">
-              <p>Popover Content</p>
-            </div>
-          }
-        />
-        <Accordion
-          type="multiple"
-          onValueChange={(value) => console.log("click", value)}
-          items={ACCORDION_ITEMS}
-        />
-        <Alert
-          icon={<Tooltip trigger={<AlertCircleIcon />}>test tooltip</Tooltip>}
-          title="Alert Title"
-          description="Alert Description"
-        />
-
-        <Label htmlFor="name">Label</Label>
-
-        <Textarea />
-        <Switch />
-        <Select
-          options={[
-            { value: "option1", label: "Option 1" },
-            { value: "option2", label: "Option 2" },
-            { value: "option3", label: "Option 3" },
-          ]}
-          placeholder="Select an option"
-          onValueChange={(value) => setSelectedOption(value)}
-          value={selectedOption}
-        />
-
-        <Input />
-        <Checkbox />
-        <div className="flex gap-2">
-          <Button>Button</Button>
-          <Button variant="outline">Outline</Button>
-          <Button variant="secondary">Secondary</Button>
-          <Button variant="ghost">Ghost</Button>
-          <Button variant="destructive">Destructive</Button>
-          <Button variant="link">Link</Button>
-        </div>
-
-        <Card
-          className="w-96"
-          title="Card Title"
-          description="Card Description"
-          action={
-            <Button variant="outline" size="sm">
-              Action
-            </Button>
-          }
-          footer={<p>Card Footer</p>}
-        >
-          <p>Card Content</p>
-        </Card>
-
-        <div className="flex w-full gap-2">
+      value: "dialog",
+      trigger: "Dialog",
+      content: (
+        <div className="flex justify-center items-center flex-col gap-2">
           <Dialog
             title="프로필 편집"
             open={isOpen}
@@ -149,7 +79,14 @@ export default function Home() {
               </div>
             </div>
           </Dialog>
-
+        </div>
+      ),
+    },
+    {
+      value: "alert-dialog",
+      trigger: "Alert Dialog",
+      content: (
+        <div className="flex justify-center items-center flex-col gap-2">
           <AlertDialog
             open={isAlertDialogOpen}
             onOpenChange={setIsAlertDialogOpen}
@@ -158,6 +95,206 @@ export default function Home() {
             trigger={<Button className="flex-1">Alert Dialog 열기</Button>}
             action={<Button variant="outline">Action</Button>}
             cancel={<Button variant="outline">Cancel</Button>}
+          />
+        </div>
+      ),
+    },
+    {
+      value: "card",
+      trigger: "Card",
+      content: (
+        <div className="flex justify-center items-center flex-col gap-2">
+          <Card
+            className="w-96"
+            title="Card Title"
+            description="Card Description"
+            action={
+              <Button variant="outline" size="sm">
+                Action
+              </Button>
+            }
+            footer={<p>Card Footer</p>}
+          >
+            <p>Card Content</p>
+          </Card>
+        </div>
+      ),
+    },
+    {
+      value: "textarea",
+      trigger: "Textarea",
+      content: (
+        <div className="flex justify-center items-center flex-col gap-2">
+          <Textarea />
+        </div>
+      ),
+    },
+    {
+      value: "input",
+      trigger: "Input",
+      content: (
+        <div className="flex justify-center items-center flex-col gap-2">
+          <Input />
+        </div>
+      ),
+    },
+    {
+      value: "checkbox",
+      trigger: "Checkbox",
+      content: (
+        <div className="flex justify-center items-center flex-col gap-2">
+          <Checkbox />
+        </div>
+      ),
+    },
+    {
+      value: "label",
+      trigger: "Label",
+      content: (
+        <div className="flex justify-center items-center flex-col gap-2">
+          <Label htmlFor="name">Label</Label>
+        </div>
+      ),
+    },
+    {
+      value: "switch",
+      trigger: "Switch",
+      content: (
+        <div className="flex justify-center items-center flex-col gap-2">
+          <Switch />
+        </div>
+      ),
+    },
+  ];
+
+  const ACCORDION_ITEMS_2 = [
+    {
+      value: "select",
+      trigger: "Select",
+      content: (
+        <div className="flex justify-center items-center flex-col gap-2">
+          <Select
+            options={[
+              { value: "option1", label: "Option 1" },
+              { value: "option2", label: "Option 2" },
+              { value: "option3", label: "Option 3" },
+            ]}
+            placeholder="Select an option"
+            onValueChange={(value) => setSelectedOption(value)}
+            value={selectedOption}
+          />
+        </div>
+      ),
+    },
+    {
+      value: "button",
+      trigger: "Button",
+      content: (
+        <div className="flex justify-center items-center flex-col gap-2">
+          <div className="flex gap-2">
+            <Button>Button</Button>
+            <Button variant="outline">Outline</Button>
+            <Button variant="secondary">Secondary</Button>
+          </div>
+          <div className="flex gap-2">
+            <Button variant="destructive">Destructive</Button>
+            <Button variant="ghost">Ghost</Button>
+            <Button variant="link">Link</Button>
+          </div>
+        </div>
+      ),
+    },
+    {
+      value: "popover",
+      trigger: "Popover",
+      content: (
+        <Popover
+          open={isPopoverOpen}
+          onOpenChange={setIsPopoverOpen}
+          trigger={<Button className="flex-1">Popover 열기</Button>}
+          content={
+            <div className="w-40 rounded-md bg-background p-4">
+              <p className="text-sm text-foreground">Popover Content</p>
+            </div>
+          }
+        />
+      ),
+    },
+    {
+      value: "tooltip",
+      trigger: "Tooltip",
+      content: (
+        <div className="flex justify-center items-center gap-2">
+          <Tooltip trigger={<AlertCircleIcon />}>test tooltip</Tooltip>
+        </div>
+      ),
+    },
+    {
+      value: "alert",
+      trigger: "Alert",
+      content: (
+        <Alert
+          icon={<Tooltip trigger={<AlertCircleIcon />}>test tooltip</Tooltip>}
+          title="Alert Title"
+          description="Alert Description"
+        />
+      ),
+    },
+    {
+      value: "spinner",
+      trigger: "Spinner",
+      content: (
+        <div className="flex justify-center items-center gap-2">
+          <Spinner className="size-4" />
+          <Spinner className="size-6" />
+          <Spinner className="size-8" />
+          <Spinner className="size-10" />
+        </div>
+      ),
+    },
+    {
+      value: "calendar-date-range",
+      trigger: "Calendar Date Range",
+      content: (
+        <div className="flex justify-center">
+          <Calendar
+            mode="range"
+            selected={selectedDateRange}
+            onSelect={(range: DateRange | undefined) =>
+              setSelectedDateRange(range)
+            }
+          />
+        </div>
+      ),
+    },
+    {
+      value: "calendar-date-single",
+      trigger: "Calendar Date Single",
+      content: (
+        <div className="flex justify-center">
+          <Calendar
+            mode="single"
+            selected={selectedDateSingle}
+            onSelect={(date: Date | undefined) => setSelectedDateSingle(date)}
+          />
+        </div>
+      ),
+    },
+  ];
+
+  return (
+    <div className="p-4 flex flex-col gap-2">
+      <main className="flex flex-col gap-2 w-3xl mx-auto">
+        <div className="flex gap-2">
+          <Accordion
+            type="multiple"
+            onValueChange={(value) => console.log("click", value)}
+            items={ACCORDION_ITEMS_1}
+          />
+          <Accordion
+            type="multiple"
+            onValueChange={(value) => console.log("click", value)}
+            items={ACCORDION_ITEMS_2}
           />
         </div>
       </main>
