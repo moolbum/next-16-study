@@ -10,8 +10,10 @@ import {
   Switch,
   Textarea,
   Tooltip,
+  Alert,
 } from "@/components/atoms";
 import { Dialog } from "@/components/molecule";
+import { AlertCircleIcon } from "lucide-react";
 
 export default function Home() {
   const [isOpen, setIsOpen] = useState(false);
@@ -22,11 +24,13 @@ export default function Home() {
   return (
     <div className="p-4 flex flex-col gap-2">
       <main className="flex flex-col gap-2 max-w-3xl mx-auto">
-        <Label htmlFor="name">Label</Label>
+        <Alert
+          icon={<Tooltip trigger={<AlertCircleIcon />}>test tooltip</Tooltip>}
+          title="Alert Title"
+          description="Alert Description"
+        />
 
-        <Tooltip trigger={<Button variant="outline">Hover</Button>}>
-          test tooltip
-        </Tooltip>
+        <Label htmlFor="name">Label</Label>
 
         <Textarea />
         <Switch />
