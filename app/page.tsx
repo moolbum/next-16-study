@@ -17,6 +17,7 @@ import {
   Calendar,
   Command,
   DropdownMenu,
+  Avatar,
 } from "@/components/atoms";
 import {
   Dialog,
@@ -48,6 +49,15 @@ export default function Home() {
   >(undefined);
 
   const ACCORDION_ITEMS = [
+    {
+      value: "avatar",
+      trigger: "Avatar",
+      content: (
+        <div className="flex justify-center items-center flex-col gap-2">
+          <Avatar src="https://github.com/shadcn.png" />
+        </div>
+      ),
+    },
     {
       value: "date-range-picker",
       trigger: "Date Range Picker",
