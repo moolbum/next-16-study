@@ -19,6 +19,7 @@ import {
   DropdownMenu,
   Avatar,
   Item,
+  Empty,
 } from "@/components/atoms";
 import {
   Dialog,
@@ -26,7 +27,7 @@ import {
   DatePicker,
   DateRangePicker,
 } from "@/components/molecule";
-import { AlertCircleIcon } from "lucide-react";
+import { AlertCircleIcon, FolderCode } from "lucide-react";
 import { DateRange } from "react-day-picker";
 import { toast } from "sonner";
 import { chunk } from "es-toolkit/array";
@@ -50,6 +51,21 @@ export default function Home() {
   >(undefined);
 
   const ACCORDION_ITEMS = [
+    {
+      value: "empty",
+      trigger: "Empty",
+      content: (
+        <div className="flex justify-center items-center flex-col gap-2">
+          <Empty
+            title="Empty Title"
+            description="Empty Description"
+            media={<FolderCode />}
+          >
+            <Button>Empty Action</Button>
+          </Empty>
+        </div>
+      ),
+    },
     {
       value: "item",
       trigger: "Item",
