@@ -15,6 +15,7 @@ import {
   Popover,
   Spinner,
   Calendar,
+  Command,
 } from "@/components/atoms";
 import { Dialog, AlertDialog } from "@/components/molecule";
 import { AlertCircleIcon } from "lucide-react";
@@ -36,6 +37,36 @@ export default function Home() {
   >(undefined);
 
   const ACCORDION_ITEMS_1 = [
+    {
+      value: "command",
+      trigger: "Command",
+      content: (
+        <div className="flex justify-center items-center flex-col gap-2">
+          <Command
+            placeholder="Type a command or search..."
+            emptyMessage="No results found."
+            groups={[
+              {
+                heading: "Suggestions",
+                items: [
+                  { label: "Calendar" },
+                  { label: "Search Emoji" },
+                  { label: "Calculator", disabled: true },
+                ],
+              },
+              {
+                heading: "Settings",
+                items: [
+                  { label: "Profile", shortcut: "⌘P" },
+                  { label: "Billing", shortcut: "⌘B" },
+                  { label: "Settings", shortcut: "⌘S" },
+                ],
+              },
+            ]}
+          />
+        </div>
+      ),
+    },
     {
       value: "sonner",
       trigger: "Sonner",

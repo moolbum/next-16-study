@@ -12,3 +12,4 @@ export * from "./Accordion/Accordion";
 export * from "./Popover/Popover";
 export * from "./Spinner/Spinner";
 export * from "./Calendar/Calendar";
+export * from "./Command/Command";
