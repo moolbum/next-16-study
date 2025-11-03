@@ -16,6 +16,7 @@ import {
   Spinner,
   Calendar,
   Command,
+  DropdownMenu,
 } from "@/components/atoms";
 import { Dialog, AlertDialog } from "@/components/molecule";
 import { AlertCircleIcon } from "lucide-react";
@@ -37,6 +38,21 @@ export default function Home() {
   >(undefined);
 
   const ACCORDION_ITEMS_1 = [
+    {
+      value: "dropdown-menu",
+      trigger: "Dropdown Menu",
+      content: (
+        <div className="flex justify-center items-center flex-col gap-2">
+          <DropdownMenu
+            items={[
+              { label: "Calendar" },
+              { label: "Search Emoji" },
+              { label: "Calculator", disabled: true },
+            ]}
+          />
+        </div>
+      ),
+    },
     {
       value: "command",
       trigger: "Command",

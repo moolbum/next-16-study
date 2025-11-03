@@ -13,3 +13,4 @@ export * from "./Popover/Popover";
 export * from "./Spinner/Spinner";
 export * from "./Calendar/Calendar";
 export * from "./Command/Command";
+export * from "./DropdownMenu/DropdownMenu";
