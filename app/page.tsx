@@ -452,7 +452,7 @@ export default function Home() {
 
   return (
     <div className="p-4 flex flex-col gap-2">
-      <main className="flex flex-col gap-2 w-4xl mx-auto">
+      <main className="flex flex-col gap-2 w-5xl mx-auto">
         <div className="flex gap-2">
           {accordionChunks.map((chunk, index) => (
             <Accordion
