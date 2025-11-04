@@ -25,7 +25,13 @@ export const FieldSet = ({ items, ...props }: FieldSetProps) => {
   ) => {
     if (isString(label)) {
       return (
-        <FieldLabel htmlFor={item.id} {...item.labelProps}>
+        <FieldLabel
+          htmlFor={item.id}
+          style={{
+            flex: "initial",
+          }}
+          {...item.labelProps}
+        >
           {label}
         </FieldLabel>
       );

@@ -70,6 +70,11 @@ export default function Home() {
   const [selectedCheckboxGroup, setSelectedCheckboxGroup] = useState<
     string[] | undefined
   >(undefined);
+  const [selectedFieldSetCheckboxGroup, setSelectedFieldSetCheckboxGroup] =
+    useState<string[] | undefined>(undefined);
+  const [selectedFieldSetRadioGroup, setSelectedFieldSetRadioGroup] = useState<
+    string | undefined
+  >(undefined);
 
   const TABS_ITEMS = [
     {
@@ -94,6 +99,102 @@ export default function Home() {
 
   const ACCORDION_ITEMS = [
     {
+      value: "field-set-radio-group",
+      trigger: "FieldSet (Radio Group)",
+      content: (
+        <div className="flex justify-center items-center flex-col gap-2 p-2">
+          <FieldSet
+            items={[
+              {
+                id: "field-set-radio-group-horizontal",
+                type: "radioGroup",
+                label: "Radio Group Horizontal",
+                orientation: "horizontal",
+                props: {
+                  value: selectedFieldSetRadioGroup,
+                  onValueChange: (value) => {
+                    console.log("selectedFieldSetRadioGroup", value);
+                    setSelectedFieldSetRadioGroup(value);
+                  },
+                  options: [
+                    { value: "OPTION_1", label: "Option 1" },
+                    { value: "OPTION_2", label: "Option 2" },
+                    { value: "OPTION_3", label: "Option 3", disabled: true },
+                  ],
+                },
+              },
+              {
+                id: "field-set-radio-group-vertical",
+                type: "radioGroup",
+                label: "Radio Group Vertical",
+                orientation: "vertical",
+                props: {
+                  value: selectedFieldSetRadioGroup,
+                  onValueChange: (value) => {
+                    console.log("selectedFieldSetRadioGroup", value);
+                    setSelectedFieldSetRadioGroup(value);
+                  },
+                  options: [
+                    { value: "OPTION_1", label: "Option 1" },
+                    { value: "OPTION_2", label: "Option 2" },
+                    { value: "OPTION_3", label: "Option 3", disabled: true },
+                  ],
+                },
+              },
+            ]}
+          />
+        </div>
+      ),
+    },
+    {
+      value: "field-set-checkbox-group  ",
+      trigger: "FieldSet (Checkbox Group)",
+      content: (
+        <div className="flex justify-center items-center flex-col gap-2 p-2">
+          <FieldSet
+            items={[
+              {
+                id: "field-set-checkbox-group-horizontal",
+                type: "checkboxGroup",
+                label: "Checkbox Group Horizontal",
+                orientation: "horizontal",
+                props: {
+                  value: selectedFieldSetCheckboxGroup,
+                  onValueChange: (value) => {
+                    console.log("selectedFieldSetCheckboxGroup", value);
+                    setSelectedFieldSetCheckboxGroup(value);
+                  },
+                  options: [
+                    { value: "OPTION_1", label: "Option 1" },
+                    { value: "OPTION_2", label: "Option 2" },
+                    { value: "OPTION_3", label: "Option 3", disabled: true },
+                  ],
+                },
+              },
+              {
+                id: "field-set-checkbox-group-vertical",
+                type: "checkboxGroup",
+                label: "Checkbox Group Vertical",
+                orientation: "vertical",
+                props: {
+                  value: selectedFieldSetCheckboxGroup,
+                  onValueChange: (value) => {
+                    console.log("selectedFieldSetCheckboxGroup", value);
+                    setSelectedFieldSetCheckboxGroup(value);
+                  },
+                  options: [
+                    { value: "OPTION_1", label: "Option 1" },
+                    { value: "OPTION_2", label: "Option 2" },
+                    { value: "OPTION_3", label: "Option 3", disabled: true },
+                  ],
+                },
+              },
+            ]}
+          />
+        </div>
+      ),
+    },
+    {
       value: "field-set-input",
       trigger: "FieldSet (Input, Textarea)",
       content: (
@@ -101,9 +202,9 @@ export default function Home() {
           <FieldSet
             items={[
               {
-                id: "field-set-input",
+                id: "field-set-input-vertical",
                 type: "input",
-                label: "Input",
+                label: "Input Vertical",
                 orientation: "vertical",
                 props: {
                   defaultValue: "Field Value",
@@ -114,16 +215,35 @@ export default function Home() {
                 },
               },
               {
-                id: "field-set-textarea",
-                type: "textarea",
-                label: "Textarea",
+                id: "field-set-input-horizontal",
+                type: "input",
+                label: "Input Horizontal",
                 orientation: "horizontal",
+                props: {
+                  defaultValue: "Field Value",
+                  placeholder: "Field Placeholder",
+                  onChange: (e) => {
+                    console.log("value", e.target.value);
+                  },
+                },
+              },
+              {
+                id: "field-set-textarea-vertical",
+                type: "textarea",
+                label: "Textarea Vertical",
+                orientation: "vertical",
                 props: {
                   placeholder: "Field Textarea Placeholder",
                   onChange: (e) => {
                     console.log("value", e.target.value);
                   },
                 },
+              },
+              {
+                id: "field-set-textarea-horizontal",
+                type: "textarea",
+                label: "Textarea Horizontal",
+                orientation: "horizontal",
               },
             ]}
           />
