@@ -19,3 +19,4 @@ export * from "./Avatar/Avatar";
 export * from "./Item/Item";
 export * from "./Empty/Empty";
 export * from "./Skeleton/Skeleton";
+export * from "./Toggle/Toggle";

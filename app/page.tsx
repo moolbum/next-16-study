@@ -22,6 +22,7 @@ import {
   Empty,
   Skeleton,
   Tabs,
+  Toggle,
 } from "@/components/atoms";
 import {
   Dialog,
@@ -29,7 +30,7 @@ import {
   DatePicker,
   DateRangePicker,
 } from "@/components/molecule";
-import { AlertCircleIcon, FolderCode } from "lucide-react";
+import { AlertCircleIcon, BookmarkIcon, FolderCode } from "lucide-react";
 import { DateRange } from "react-day-picker";
 import { toast } from "sonner";
 import { chunk } from "es-toolkit/array";
@@ -55,6 +56,8 @@ export default function Home() {
     "tabs_item_a"
   );
 
+  const [isTogglePressed, setIsTogglePressed] = useState(false);
+
   const TABS_ITEMS = [
     {
       value: "tabs_item_a",
@@ -77,6 +80,50 @@ export default function Home() {
   ];
 
   const ACCORDION_ITEMS = [
+    {
+      value: "toggle",
+      trigger: "Toggle",
+      content: (
+        <div className="flex flex-col gap-2">
+          <div className="flex gap-2">
+            <Toggle
+              pressed={isTogglePressed}
+              onPressedChange={setIsTogglePressed}
+            >
+              <BookmarkIcon />
+              Bookmark
+            </Toggle>
+            <Toggle pressed>
+              <BookmarkIcon />
+              Bookmark
+            </Toggle>
+            <Toggle disabled>
+              <BookmarkIcon />
+              Bookmark
+            </Toggle>
+          </div>
+          <div className="flex gap-2">
+            <Toggle
+              variant="outline"
+              size="lg"
+              pressed={isTogglePressed}
+              onPressedChange={setIsTogglePressed}
+            >
+              <BookmarkIcon />
+              Bookmark
+            </Toggle>
+            <Toggle variant="outline" size="lg" pressed>
+              <BookmarkIcon />
+              Bookmark
+            </Toggle>
+            <Toggle variant="outline" size="lg" disabled>
+              <BookmarkIcon />
+              Bookmark
+            </Toggle>
+          </div>
+        </div>
+      ),
+    },
     {
       value: "tabs",
       trigger: "Tabs",
