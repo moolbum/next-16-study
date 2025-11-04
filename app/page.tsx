@@ -29,6 +29,7 @@ import {
   AlertDialog,
   DatePicker,
   DateRangePicker,
+  Combobox,
 } from "@/components/molecule";
 import { AlertCircleIcon, BookmarkIcon, FolderCode } from "lucide-react";
 import { DateRange } from "react-day-picker";
@@ -55,8 +56,10 @@ export default function Home() {
   const [selectedTab, setSelectedTab] = useState<string | undefined>(
     "tabs_item_a"
   );
-
   const [isTogglePressed, setIsTogglePressed] = useState(false);
+  const [selectedCombobox, setSelectedCombobox] = useState<string | undefined>(
+    undefined
+  );
 
   const TABS_ITEMS = [
     {
@@ -80,6 +83,28 @@ export default function Home() {
   ];
 
   const ACCORDION_ITEMS = [
+    {
+      value: "combobox",
+      trigger: "Combobox",
+      content: (
+        <div className="flex justify-center items-center flex-col gap-2">
+          <Combobox
+            options={[
+              { value: "option1", label: "Option 1" },
+              { value: "option2", label: "Option 2" },
+              { value: "option3", label: "Option 3" },
+              {
+                value: "option4",
+                label: "Option 4 (disabled)",
+                disabled: true,
+              },
+            ]}
+            value={selectedCombobox}
+            onValueChange={setSelectedCombobox}
+          />
+        </div>
+      ),
+    },
     {
       value: "toggle",
       trigger: "Toggle",
@@ -105,18 +130,17 @@ export default function Home() {
           <div className="flex gap-2">
             <Toggle
               variant="outline"
-              size="lg"
               pressed={isTogglePressed}
               onPressedChange={setIsTogglePressed}
             >
               <BookmarkIcon />
               Bookmark
             </Toggle>
-            <Toggle variant="outline" size="lg" pressed>
+            <Toggle variant="outline" pressed>
               <BookmarkIcon />
               Bookmark
             </Toggle>
-            <Toggle variant="outline" size="lg" disabled>
+            <Toggle variant="outline" disabled>
               <BookmarkIcon />
               Bookmark
             </Toggle>
