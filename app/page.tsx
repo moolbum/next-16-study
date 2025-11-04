@@ -31,6 +31,7 @@ import {
   DateRangePicker,
   Combobox,
   RadioGroup,
+  CheckboxGroup,
 } from "@/components/molecule";
 import { AlertCircleIcon, BookmarkIcon, FolderCode } from "lucide-react";
 import { DateRange } from "react-day-picker";
@@ -64,6 +65,9 @@ export default function Home() {
   const [selectedRadioGroup, setSelectedRadioGroup] = useState<
     string | undefined
   >(undefined);
+  const [selectedCheckboxGroup, setSelectedCheckboxGroup] = useState<
+    string[] | undefined
+  >(undefined);
 
   const TABS_ITEMS = [
     {
@@ -87,6 +91,26 @@ export default function Home() {
   ];
 
   const ACCORDION_ITEMS = [
+    {
+      value: "checkbox-group",
+      trigger: "Checkbox Group",
+      content: (
+        <div className="flex justify-center items-center flex-col gap-2">
+          <CheckboxGroup
+            value={selectedCheckboxGroup}
+            onValueChange={(value) => {
+              console.log("selectedCheckboxGroup", value);
+              setSelectedCheckboxGroup(value);
+            }}
+            options={[
+              { value: "OPTION_1", label: "Option 1" },
+              { value: "OPTION_2", label: "Option 2" },
+              { value: "OPTION_3", label: "Option 3", disabled: true },
+            ]}
+          />
+        </div>
+      ),
+    },
     {
       value: "radio-group",
       trigger: "Radio Group",

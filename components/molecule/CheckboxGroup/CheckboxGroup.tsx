@@ -1,0 +1,59 @@
+"use client";
+
+import { Label } from "@/components/atoms";
+import { Checkbox } from "@/components/atoms/Checkbox/Checkbox";
+import { CheckboxGroupProps } from "./CheckboxGroup.type";
+import { cn } from "@/lib/utils";
+
+export const CheckboxGroup = ({
+  options,
+  direction = "horizontal",
+  className,
+  value = [],
+  onValueChange,
+  ...props
+}: CheckboxGroupProps) => {
+  const handleCheckedChange = (itemValue: string, checked: boolean) => {
+    if (!onValueChange) return;
+
+    const currentValue = value || [];
+    if (checked) {
+      // 체크박스가 선택되면 배열에 추가
+      onValueChange([...currentValue, itemValue]);
+    } else {
+      // 체크박스가 해제되면 배열에서 제거
+      onValueChange(currentValue.filter((v) => v !== itemValue));
+    }
+  };
+
+  return (
+    <div
+      {...props}
+      className={cn(
+        "flex flex-col gap-3",
+        direction === "horizontal" ? "flex-row" : "flex-col",
+        className
+      )}
+    >
+      {options.map((item) => {
+        const { value: itemValue, label, labelProps, ...checkboxProps } = item;
+        const isChecked = (value || []).includes(itemValue);
+        return (
+          <div key={itemValue} className="flex items-center gap-2">
+            <Checkbox
+              {...checkboxProps}
+              id={itemValue}
+              checked={isChecked}
+              onCheckedChange={(checked) =>
+                handleCheckedChange(itemValue, checked === true)
+              }
+            />
+            <Label htmlFor={itemValue} {...labelProps}>
+              {label}
+            </Label>
+          </div>
+        );
+      })}
+    </div>
+  );
+};

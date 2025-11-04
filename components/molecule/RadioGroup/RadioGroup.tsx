@@ -11,6 +11,7 @@ import { cn } from "@/lib/utils";
 export const RadioGroup = ({
   options,
   direction = "horizontal",
+  className,
   ...props
 }: RadioGroupProps) => {
   return (
@@ -19,7 +20,7 @@ export const RadioGroup = ({
       className={cn(
         "flex flex-col gap-3",
         direction === "horizontal" ? "flex-row" : "flex-col",
-        props?.className || ""
+        className
       )}
     >
       {options.map((item) => (
