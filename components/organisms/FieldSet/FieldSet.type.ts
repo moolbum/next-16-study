@@ -3,7 +3,7 @@ import { TextareaProps } from "@/components/atoms/Textarea/Textarea.type";
 import { SelectProps } from "@/components/atoms/Select/Select.type";
 import { DatePickerProps } from "@/components/molecule/DatePicker/DatePicker.type";
 import { DateRangePickerProps } from "@/components/molecule/DateRangePicker/DateRangePicker.type";
-import { FieldDescription } from "@/components/ui/field";
+import { Field, FieldDescription } from "@/components/ui/field";
 import { Label } from "@/components/ui/label";
 import { SwitchProps } from "@radix-ui/react-switch";
 import { CheckboxGroupProps } from "@/components/molecule/CheckboxGroup/CheckboxGroup.type";
@@ -62,7 +62,8 @@ export type FieldSetItems = {
     React.ComponentProps<typeof FieldDescription>,
     "children"
   >;
-} & FieldSetItem;
+} & FieldSetItem &
+  React.ComponentProps<typeof Field>;
 
 export type FieldSetProps = {
   items: FieldSetItems[];

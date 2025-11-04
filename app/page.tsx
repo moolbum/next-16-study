@@ -1,4 +1,5 @@
 "use client";
+
 import { useState } from "react";
 import {
   Checkbox,
@@ -37,6 +38,7 @@ import { AlertCircleIcon, BookmarkIcon, FolderCode } from "lucide-react";
 import { DateRange } from "react-day-picker";
 import { toast } from "sonner";
 import { chunk } from "es-toolkit/array";
+import { FieldSet } from "@/components/organisms";
 
 export default function Home() {
   const [isOpen, setIsOpen] = useState(false);
@@ -74,7 +76,7 @@ export default function Home() {
       value: "tabs_item_a",
       label: "Tabs Item A",
       content: (
-        <div className="flex justify-center items-center flex-col gap-2">
+        <div className="flex justify-center items-center flex-col gap-2 p-2">
           <p>Tabs Item A</p>
         </div>
       ),
@@ -83,7 +85,7 @@ export default function Home() {
       value: "tabs_item_b",
       label: "Tabs Item B",
       content: (
-        <div className="flex justify-center items-center flex-col gap-2">
+        <div className="flex justify-center items-center flex-col gap-2 p-2">
           <p>Tabs Item B</p>
         </div>
       ),
@@ -92,10 +94,47 @@ export default function Home() {
 
   const ACCORDION_ITEMS = [
     {
+      value: "field-set-input",
+      trigger: "FieldSet (Input, Textarea)",
+      content: (
+        <div className="flex justify-center items-center flex-col gap-2 p-2">
+          <FieldSet
+            items={[
+              {
+                id: "field-set-input",
+                type: "input",
+                label: "Input",
+                orientation: "vertical",
+                props: {
+                  defaultValue: "Field Value",
+                  placeholder: "Field Placeholder",
+                  onChange: (e) => {
+                    console.log("value", e.target.value);
+                  },
+                },
+              },
+              {
+                id: "field-set-textarea",
+                type: "textarea",
+                label: "Textarea",
+                orientation: "horizontal",
+                props: {
+                  placeholder: "Field Textarea Placeholder",
+                  onChange: (e) => {
+                    console.log("value", e.target.value);
+                  },
+                },
+              },
+            ]}
+          />
+        </div>
+      ),
+    },
+    {
       value: "checkbox-group",
       trigger: "Checkbox Group",
       content: (
-        <div className="flex justify-center items-center flex-col gap-2">
+        <div className="flex justify-center items-center flex-col gap-2 p-2">
           <CheckboxGroup
             value={selectedCheckboxGroup}
             onValueChange={(value) => {
@@ -115,7 +154,7 @@ export default function Home() {
       value: "radio-group",
       trigger: "Radio Group",
       content: (
-        <div className="flex justify-center items-center flex-col gap-2">
+        <div className="flex justify-center items-center flex-col gap-2 p-2">
           <RadioGroup
             value={selectedRadioGroup}
             onValueChange={(value) => {
@@ -135,7 +174,7 @@ export default function Home() {
       value: "combobox",
       trigger: "Combobox",
       content: (
-        <div className="flex justify-center items-center flex-col gap-2">
+        <div className="flex justify-center items-center flex-col gap-2 p-2">
           <Combobox
             options={[
               { value: "option1", label: "Option 1" },
@@ -200,7 +239,7 @@ export default function Home() {
       value: "tabs",
       trigger: "Tabs",
       content: (
-        <div className="flex justify-center items-center flex-col gap-2">
+        <div className="flex justify-center items-center flex-col gap-2 p-2">
           <Tabs
             value={selectedTab}
             onValueChange={setSelectedTab}
@@ -223,7 +262,7 @@ export default function Home() {
       value: "empty",
       trigger: "Empty",
       content: (
-        <div className="flex justify-center items-center flex-col gap-2">
+        <div className="flex justify-center items-center flex-col gap-2 p-2">
           <Empty
             title="Empty Title"
             description="Empty Description"
@@ -238,7 +277,7 @@ export default function Home() {
       value: "item",
       trigger: "Item",
       content: (
-        <div className="flex justify-center items-center flex-col gap-2">
+        <div className="flex justify-center items-center flex-col gap-2 p-2">
           <Item
             title="아이템 제목"
             description="아이템 설명"
@@ -264,7 +303,7 @@ export default function Home() {
       value: "avatar",
       trigger: "Avatar",
       content: (
-        <div className="flex justify-center items-center flex-col gap-2">
+        <div className="flex justify-center items-center flex-col gap-2 p-2">
           <Avatar src="https://github.com/shadcn.png" />
         </div>
       ),
@@ -273,7 +312,7 @@ export default function Home() {
       value: "date-range-picker",
       trigger: "Date Range Picker",
       content: (
-        <div className="flex justify-center items-center flex-col gap-2">
+        <div className="flex justify-center items-center flex-col gap-2 p-2">
           <DateRangePicker
             placeholder="YYYY.MM.DD - YYYY.MM.DD"
             date={selectedDateRangePicker}
@@ -288,7 +327,7 @@ export default function Home() {
       value: "alert-dialog",
       trigger: "Alert Dialog",
       content: (
-        <div className="flex justify-center items-center flex-col gap-2">
+        <div className="flex justify-center items-center flex-col gap-2 p-2">
           <AlertDialog
             open={isAlertDialogOpen}
             onOpenChange={setIsAlertDialogOpen}
@@ -305,7 +344,7 @@ export default function Home() {
       value: "card",
       trigger: "Card",
       content: (
-        <div className="flex justify-center items-center flex-col gap-2">
+        <div className="flex justify-center items-center flex-col gap-2 p-2">
           <Card
             className="w-96"
             title="Card Title"
@@ -326,7 +365,7 @@ export default function Home() {
       value: "checkbox",
       trigger: "Checkbox",
       content: (
-        <div className="flex justify-center items-center flex-col gap-2">
+        <div className="flex justify-center items-center flex-col gap-2 p-2">
           <Checkbox />
         </div>
       ),
@@ -335,7 +374,7 @@ export default function Home() {
       value: "command",
       trigger: "Command",
       content: (
-        <div className="flex justify-center items-center flex-col gap-2">
+        <div className="flex justify-center items-center flex-col gap-2 p-2">
           <Command
             placeholder="Type a command or search..."
             emptyMessage="No results found."
@@ -365,7 +404,7 @@ export default function Home() {
       value: "date-picker",
       trigger: "Date Picker",
       content: (
-        <div className="flex justify-center items-center flex-col gap-2">
+        <div className="flex justify-center items-center flex-col gap-2 p-2">
           <DatePicker
             placeholder="YYYY.MM.DD"
             date={selectedDate}
@@ -388,7 +427,7 @@ export default function Home() {
       value: "dialog",
       trigger: "Dialog",
       content: (
-        <div className="flex justify-center items-center flex-col gap-2">
+        <div className="flex justify-center items-center flex-col gap-2 p-2">
           <Dialog
             title="프로필 편집"
             open={isOpen}
@@ -435,7 +474,7 @@ export default function Home() {
       value: "dropdown-menu",
       trigger: "Dropdown Menu",
       content: (
-        <div className="flex justify-center items-center flex-col gap-2">
+        <div className="flex justify-center items-center flex-col gap-2 p-2">
           <DropdownMenu
             items={[
               { label: "Calendar" },
@@ -450,7 +489,7 @@ export default function Home() {
       value: "input",
       trigger: "Input",
       content: (
-        <div className="flex justify-center items-center flex-col gap-2">
+        <div className="flex justify-center items-center flex-col gap-2 p-2">
           <Input />
         </div>
       ),
@@ -459,7 +498,7 @@ export default function Home() {
       value: "label",
       trigger: "Label",
       content: (
-        <div className="flex justify-center items-center flex-col gap-2">
+        <div className="flex justify-center items-center flex-col gap-2 p-2">
           <Label htmlFor="name">Label</Label>
         </div>
       ),
@@ -468,7 +507,7 @@ export default function Home() {
       value: "sonner",
       trigger: "Sonner",
       content: (
-        <div className="flex justify-center items-center flex-col gap-2">
+        <div className="flex justify-center items-center flex-col gap-2 p-2">
           <Button
             variant="outline"
             onClick={() => toast("Event has been created")}
@@ -528,7 +567,7 @@ export default function Home() {
       value: "switch",
       trigger: "Switch",
       content: (
-        <div className="flex justify-center items-center flex-col gap-2">
+        <div className="flex justify-center items-center flex-col gap-2 p-2">
           <Switch />
         </div>
       ),
@@ -537,7 +576,7 @@ export default function Home() {
       value: "textarea",
       trigger: "Textarea",
       content: (
-        <div className="flex justify-center items-center flex-col gap-2">
+        <div className="flex justify-center items-center flex-col gap-2 p-2">
           <Textarea />
         </div>
       ),
@@ -557,7 +596,7 @@ export default function Home() {
       value: "button",
       trigger: "Button",
       content: (
-        <div className="flex justify-center items-center flex-col gap-2">
+        <div className="flex justify-center items-center flex-col gap-2 p-2">
           <div className="flex gap-2">
             <Button>Button</Button>
             <Button variant="outline">Outline</Button>
@@ -619,7 +658,7 @@ export default function Home() {
       value: "select",
       trigger: "Select",
       content: (
-        <div className="flex justify-center items-center flex-col gap-2">
+        <div className="flex justify-center items-center flex-col gap-2 p-2">
           <Select
             options={[
               { value: "option1", label: "Option 1" },
@@ -663,7 +702,7 @@ export default function Home() {
 
   return (
     <div className="p-4 flex flex-col gap-2">
-      <main className="flex flex-col gap-2 w-5xl mx-auto">
+      <main className="flex flex-col gap-2 w-full mx-auto">
         <div className="flex gap-2">
           {accordionChunks.map((chunk, index) => (
             <Accordion

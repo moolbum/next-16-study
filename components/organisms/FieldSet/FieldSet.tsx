@@ -5,7 +5,6 @@ import {
   FieldDescription,
   FieldGroup,
   FieldLabel,
-  FieldContent,
   FieldSet as FieldSetComponent,
 } from "@/components/ui/field";
 import { FieldSetItems, FieldSetProps } from "./FieldSet.type";
@@ -74,16 +73,15 @@ export const FieldSet = ({ items, ...props }: FieldSetProps) => {
   };
 
   return (
-    <FieldSetComponent {...props}>
+    <FieldSetComponent className="w-full" {...props}>
       <FieldGroup>
         {items.map((item) => {
+          const { id, label, description, orientation, ...fieldProps } = item;
           return (
-            <Field key={item.id}>
-              <FieldContent>
-                {renderLabel(item, item.label)}
-                {item?.description && renderDescription(item, item.description)}
-                {renderContent(item)}
-              </FieldContent>
+            <Field key={id} orientation={orientation} {...fieldProps}>
+              {renderLabel(item, label)}
+              {description && renderDescription(item, description)}
+              {renderContent(item)}
             </Field>
           );
         })}
