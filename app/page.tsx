@@ -75,6 +75,7 @@ export default function Home() {
   const [selectedFieldSetRadioGroup, setSelectedFieldSetRadioGroup] = useState<
     string | undefined
   >(undefined);
+  const [accordionValues, setAccordionValues] = useState<string[]>([]);
 
   const TABS_ITEMS = [
     {
@@ -820,19 +821,54 @@ export default function Home() {
     10
   );
 
+  const allAccordionValues = ACCORDION_ITEMS.map((item) => item.value);
+
+  const handleOpenAll = () => {
+    setAccordionValues(allAccordionValues);
+  };
+
+  const handleCloseAll = () => {
+    setAccordionValues([]);
+  };
+
+  const handleAccordionValueChange = (value: string[]) => {
+    setAccordionValues(value);
+  };
+
   return (
     <div className="p-4 flex flex-col gap-2">
       <main className="flex flex-col gap-2 w-full mx-auto">
-        <div className="flex gap-2">
+        {/* Header */}
+        <section className="flex items-center gap-3">
+          <div className="flex flex-col">
+            <h1 className="text-2xl font-bold">컴포넌트 목록</h1>
+            <p className="text-gray-500">
+              아코디언 개수 ({ACCORDION_ITEMS.length})
+            </p>
+          </div>
+
+          <section className="flex gap-2">
+            <Button onClick={handleOpenAll} size="lg">
+              모두 열기
+            </Button>
+            <Button variant="outline" size="lg" onClick={handleCloseAll}>
+              모두 닫기
+            </Button>
+          </section>
+        </section>
+
+        {/* Accordion */}
+        <section className="flex gap-2">
           {accordionChunks.map((chunk, index) => (
             <Accordion
               key={index}
               type="multiple"
-              onValueChange={(value) => console.log("click", value)}
+              value={accordionValues}
+              onValueChange={handleAccordionValueChange}
               items={chunk}
             />
           ))}
-        </div>
+        </section>
       </main>
     </div>
   );

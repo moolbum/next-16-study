@@ -36,6 +36,7 @@ export const RadioGroup = ({
         } = item;
         const isDisabled = disabled === true;
         const uniqueId = `${groupId}-${itemValue}`;
+
         return (
           <div key={itemValue} className="flex items-center gap-2">
             <RadioGroupItem
