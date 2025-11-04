@@ -5,11 +5,19 @@ import {
 } from "@/components/ui/popover";
 import { PopoverProps } from "./Popover.type";
 
-export const Popover = ({ trigger, content, ...props }: PopoverProps) => {
+export const Popover = ({
+  trigger,
+  triggerProps,
+  content,
+  contentProps,
+  ...props
+}: PopoverProps) => {
   return (
     <PopoverComponent {...props}>
-      <PopoverTrigger asChild>{trigger}</PopoverTrigger>
-      <PopoverContent>{content}</PopoverContent>
+      <PopoverTrigger asChild {...triggerProps}>
+        {trigger}
+      </PopoverTrigger>
+      <PopoverContent {...contentProps}>{content}</PopoverContent>
     </PopoverComponent>
   );
 };

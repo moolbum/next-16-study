@@ -3,7 +3,7 @@
 import { useState, useRef, useEffect } from "react";
 import { Check, ChevronsUpDown } from "lucide-react";
 import { cn } from "@/lib/utils";
-import { Button } from "@/components/atoms";
+import { Button, Popover } from "@/components/atoms";
 import {
   Command,
   CommandEmpty,
@@ -12,11 +12,6 @@ import {
   CommandItem,
   CommandList,
 } from "@/components/ui/command";
-import {
-  Popover,
-  PopoverContent,
-  PopoverTrigger,
-} from "@/components/ui/popover";
 import { ComboboxProps } from "./Combobox.type";
 import { PLACEHOLDERS, STRINGS } from "@/constants";
 
@@ -83,57 +78,59 @@ export const Combobox = ({
     );
   }
 
-  return (
-    <Popover open={open} onOpenChange={onOpenChange} {...props}>
-      <PopoverTrigger asChild>
-        <Button
-          ref={triggerRef}
-          variant="outline"
-          role="combobox"
-          aria-expanded={open}
-          className={cn("w-full justify-between", buttonClassName)}
-        >
-          {selectedLabel || placeholder}
-          <ChevronsUpDown className="ml-2 h-4 w-4 shrink-0 opacity-50" />
-        </Button>
-      </PopoverTrigger>
+  const triggerButton = (
+    <Button
+      ref={triggerRef}
+      variant="outline"
+      role="combobox"
+      aria-expanded={open}
+      className={cn("w-full justify-between", buttonClassName)}
+    >
+      {selectedLabel || placeholder}
+      <ChevronsUpDown className="ml-2 h-4 w-4 shrink-0 opacity-50" />
+    </Button>
+  );
 
-      <PopoverContent
-        className={cn("p-0", contentClassName)}
-        style={{
+  const commandContent = (
+    <Command>
+      <CommandInput placeholder={searchPlaceholder} className="h-9 w-full" />
+      <CommandList>
+        <CommandEmpty>{emptyMessage}</CommandEmpty>
+        <CommandGroup>
+          {options.map((option) => (
+            <CommandItem
+              key={option.value}
+              value={option.value}
+              onSelect={handleValueChange}
+              disabled={option.disabled}
+            >
+              {option.label}
+              <Check
+                className={cn(
+                  "ml-auto h-4 w-4",
+                  currentValue === option.value ? "opacity-100" : "opacity-0"
+                )}
+              />
+            </CommandItem>
+          ))}
+        </CommandGroup>
+      </CommandList>
+    </Command>
+  );
+
+  return (
+    <Popover
+      open={open}
+      onOpenChange={onOpenChange}
+      trigger={triggerButton}
+      content={commandContent}
+      contentProps={{
+        className: cn("p-0", contentClassName),
+        style: {
           width: triggerWidth ? `${triggerWidth}px` : undefined,
-        }}
-      >
-        <Command>
-          <CommandInput
-            placeholder={searchPlaceholder}
-            className="h-9 w-full"
-          />
-          <CommandList>
-            <CommandEmpty>{emptyMessage}</CommandEmpty>
-            <CommandGroup>
-              {options.map((option) => (
-                <CommandItem
-                  key={option.value}
-                  value={option.value}
-                  onSelect={handleValueChange}
-                  disabled={option.disabled}
-                >
-                  {option.label}
-                  <Check
-                    className={cn(
-                      "ml-auto h-4 w-4",
-                      currentValue === option.value
-                        ? "opacity-100"
-                        : "opacity-0"
-                    )}
-                  />
-                </CommandItem>
-              ))}
-            </CommandGroup>
-          </CommandList>
-        </Command>
-      </PopoverContent>
-    </Popover>
+        },
+      }}
+      {...props}
+    />
   );
 };
