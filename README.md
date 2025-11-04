@@ -44,6 +44,55 @@ yarn start
 - `yarn build`: 빌드 생성
 - `yarn start`: 생성된 빌드 파일 기반 실행
 
+## 🗂️ 프로젝트 구조
+
+```
+
+
+├── app/                     # App
+│   ├── globals.css          # 전역 스타일
+│   ├── layout.tsx           # 전역 레이아웃
+│   ├── page.tsx             # 메인 페이지 ('/')
+│   └── [feature]/           # Routing 주소 정의 (폴더생성)
+│       └── example.tsx      # Routing 별 페이지 화면
+│
+├── components               # 재사용 가능한 컴포넌트
+│   ├── atoms/               # Atoms: 가장 작은 단위의 컴포넌트
+│   ├── molecule/            # Molecule: atom으로 이루어진 컴포넌트,
+│   ├── organisms/           # Organisms: molecule 또는 atom이 다수로 이루어진 컴포넌트
+│   └── ui/                  # Ui: Shadcn ui CLI 입력으로 설치시 자동생성 파일
+│       └── [Feature]
+│             ├── Feature          # 컴포넌트 정의
+│             └── Feature.type.ts  # 컴포넌트 타입 정의
+│
+├── constants/                # 상수 관련
+├── lib/                      # 유틸 함수
+├── public/                   # 정적 파일 저장소
+├── .gitignore
+├── .nvmrc
+├── components.json
+├── eslint.config.mjs
+├── next.config.ts
+├── package.json
+├── postcss.config.mjs
+├── tsconfig.json
+└── yarn.lock
+```
+
+### 파일 이름 규칙
+
+| 파일 타입         | 규칙                  | 예시                         |
+| ----------------- | --------------------- | ---------------------------- |
+| 컴포넌트          | `PascalCase.tsx`      | `iButton.tsx`, `Card.tsx`    |
+| 페이지            | `PascalCase.tsx`      | `Login.tsx`, `Dashboard.tsx` |
+| 훅                | `use + PascalCase.ts` | `useFilterQuery.ts`          |
+| 유틸              | `camelCase.ts`        | `index.ts`, `fileUpload.ts`  |
+| 타입(Component)   | `PascalCase.type.tsx` | `Card.type.ts`               |
+| 타입(API)         | `camelCase.type.ts`   | `api.type.ts`                |
+| 테스트(Component) | `PascalCase.test.ts`  | `Login.test.ts`              |
+| 테스트(Function)  | `camelCase.test.ts`   | `util.test.ts`               |
+| 상수              | `UPPER_SNAKE_CASE`    | `STORE_FILTER_OPTION`        |
+
 # Vercel에 배포하기
 
 Next.js 앱을 배포하는 가장 쉬운 방법은 Next.js 제작자들이 만든 [Vercel 플랫폼](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme)을 사용하는 것입니다.
