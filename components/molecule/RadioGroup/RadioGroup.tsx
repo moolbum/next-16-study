@@ -1,5 +1,6 @@
 "use client";
 
+import { useId } from "react";
 import { Label } from "@/components/atoms";
 import {
   RadioGroup as RadioGroupComponent,
@@ -14,6 +15,8 @@ export const RadioGroup = ({
   className,
   ...props
 }: RadioGroupProps) => {
+  const groupId = useId();
+
   return (
     <RadioGroupComponent
       {...props}
@@ -23,14 +26,17 @@ export const RadioGroup = ({
         className
       )}
     >
-      {options.map((item) => (
-        <div key={item.value} className="flex items-center gap-2">
-          <RadioGroupItem {...item} value={item.value} id={item.value} />
-          <Label htmlFor={item.value} {...item.labelProps}>
-            {item.label}
-          </Label>
-        </div>
-      ))}
+      {options.map((item) => {
+        const uniqueId = `${groupId}-${item.value}`;
+        return (
+          <div key={item.value} className="flex items-center gap-2">
+            <RadioGroupItem {...item} value={item.value} id={uniqueId} />
+            <Label htmlFor={uniqueId} {...item.labelProps}>
+              {item.label}
+            </Label>
+          </div>
+        );
+      })}
     </RadioGroupComponent>
   );
 };

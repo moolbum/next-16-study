@@ -1,5 +1,6 @@
 "use client";
 
+import { useId } from "react";
 import { Label } from "@/components/atoms";
 import { Checkbox } from "@/components/atoms/Checkbox/Checkbox";
 import { CheckboxGroupProps } from "./CheckboxGroup.type";
@@ -13,6 +14,8 @@ export const CheckboxGroup = ({
   onValueChange,
   ...props
 }: CheckboxGroupProps) => {
+  const groupId = useId();
+
   const handleCheckedChange = (itemValue: string, checked: boolean) => {
     if (!onValueChange) return;
 
@@ -36,19 +39,36 @@ export const CheckboxGroup = ({
       )}
     >
       {options.map((item) => {
-        const { value: itemValue, label, labelProps, ...checkboxProps } = item;
+        const {
+          value: itemValue,
+          label,
+          labelProps,
+          disabled,
+          ...checkboxProps
+        } = item;
         const isChecked = (value || []).includes(itemValue);
+        const isDisabled = disabled === true;
+        const uniqueId = `${groupId}-${itemValue}`;
+
         return (
           <div key={itemValue} className="flex items-center gap-2">
             <Checkbox
               {...checkboxProps}
-              id={itemValue}
+              id={uniqueId}
               checked={isChecked}
+              disabled={isDisabled}
               onCheckedChange={(checked) =>
                 handleCheckedChange(itemValue, checked === true)
               }
             />
-            <Label htmlFor={itemValue} {...labelProps}>
+            <Label
+              htmlFor={uniqueId}
+              {...labelProps}
+              className={cn(
+                !isDisabled && "cursor-pointer",
+                labelProps?.className
+              )}
+            >
               {label}
             </Label>
           </div>
