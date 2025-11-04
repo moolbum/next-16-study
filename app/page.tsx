@@ -225,7 +225,7 @@ export default function Home() {
                 props: {
                   disabled: true,
                   date: selectedDateRangePicker,
-                  onSelect: (value: DateRange | undefined) => {
+                  onSelect: (value) => {
                     console.log("selectedDateRangePicker", value);
                     setSelectedDateRangePicker(value);
                   },
@@ -238,7 +238,7 @@ export default function Home() {
                 orientation: "vertical",
                 props: {
                   date: selectedDateRangePicker,
-                  onSelect: (value: DateRange | undefined) => {
+                  onSelect: (value) => {
                     console.log("selectedDateRangePicker", value);
                     setSelectedDateRangePicker(value);
                   },
@@ -728,9 +728,7 @@ export default function Home() {
           <DateRangePicker
             placeholder="YYYY.MM.DD - YYYY.MM.DD"
             date={selectedDateRangePicker}
-            onSelect={(range: DateRange | undefined) =>
-              setSelectedDateRangePicker(range)
-            }
+            onSelect={(range) => setSelectedDateRangePicker(range)}
           />
         </div>
       ),
@@ -1031,9 +1029,7 @@ export default function Home() {
           <Calendar
             mode="range"
             selected={selectedDateRange}
-            onSelect={(range: DateRange | undefined) =>
-              setSelectedDateRange(range)
-            }
+            onSelect={(range) => setSelectedDateRange(range)}
           />
         </div>
       ),

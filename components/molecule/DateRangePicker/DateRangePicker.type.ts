@@ -7,9 +7,7 @@ export type DateRangePickerProps = {
   /** 선택된 날짜 범위 */
   date?: DateRange | undefined;
   /** 날짜 범위 변경 핸들러 (함수 또는 React setState 함수) */
-  onSelect?:
-    | ((date: DateRange | undefined) => void)
-    | React.Dispatch<React.SetStateAction<DateRange | undefined>>;
+  onSelect?: (date: DateRange | undefined) => void;
   /** 버튼에 표시할 플레이스홀더 텍스트 */
   placeholder?: string;
   /** 날짜 범위 포맷팅 함수 (기본값: toLocaleDateString) */
