@@ -3,3 +3,4 @@ export * from "./AlertDialog/AlertDialog";
 export * from "./DatePicker/DatePicker";
 export * from "./DateRangePicker/DateRangePicker";
 export * from "./Combobox/Combobox";
+export * from "./RadioGroup/RadioGroup";

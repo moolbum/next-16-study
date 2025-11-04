@@ -30,6 +30,7 @@ import {
   DatePicker,
   DateRangePicker,
   Combobox,
+  RadioGroup,
 } from "@/components/molecule";
 import { AlertCircleIcon, BookmarkIcon, FolderCode } from "lucide-react";
 import { DateRange } from "react-day-picker";
@@ -60,6 +61,9 @@ export default function Home() {
   const [selectedCombobox, setSelectedCombobox] = useState<string | undefined>(
     undefined
   );
+  const [selectedRadioGroup, setSelectedRadioGroup] = useState<
+    string | undefined
+  >(undefined);
 
   const TABS_ITEMS = [
     {
@@ -83,6 +87,26 @@ export default function Home() {
   ];
 
   const ACCORDION_ITEMS = [
+    {
+      value: "radio-group",
+      trigger: "Radio Group",
+      content: (
+        <div className="flex justify-center items-center flex-col gap-2">
+          <RadioGroup
+            value={selectedRadioGroup}
+            onValueChange={(value) => {
+              console.log("selectedRadioGroup", value);
+              setSelectedRadioGroup(value);
+            }}
+            options={[
+              { value: "OPTION_1", label: "Option 1" },
+              { value: "OPTION_2", label: "Option 2" },
+              { value: "OPTION_3", label: "Option 3", disabled: true },
+            ]}
+          />
+        </div>
+      ),
+    },
     {
       value: "combobox",
       trigger: "Combobox",
