@@ -105,6 +105,73 @@ export default function Home() {
 
   const ACCORDION_ITEMS = [
     {
+      value: "field-set-combobox",
+      trigger: "FieldSet (Combobox)",
+      content: (
+        <div className="flex justify-center items-center flex-col gap-2 p-2">
+          <FieldSet
+            items={[
+              {
+                id: "field-set-combobox-horizontal",
+                type: "combobox",
+                label: "Combobox Horizontal",
+                orientation: "horizontal",
+                props: {
+                  value: selectedCombobox,
+                  onValueChange: (value) => {
+                    console.log("selectedCombobox", value);
+                    setSelectedCombobox(value);
+                  },
+                  options: [
+                    { value: "OPTION_1", label: "Option 1" },
+                    { value: "OPTION_2", label: "Option 2" },
+                    { value: "OPTION_3", label: "Option 3", disabled: true },
+                  ],
+                },
+              },
+              {
+                id: "field-set-combobox-vertical",
+                type: "combobox",
+                label: "Combobox Vertical",
+                orientation: "vertical",
+                props: {
+                  value: selectedCombobox,
+                  onValueChange: (value) => {
+                    console.log("selectedCombobox", value);
+                    setSelectedCombobox(value);
+                  },
+                  options: [
+                    { value: "OPTION_1", label: "Option 1" },
+                    { value: "OPTION_2", label: "Option 2" },
+                    { value: "OPTION_3", label: "Option 3", disabled: true },
+                  ],
+                },
+              },
+              {
+                id: "field-set-combobox-disabled",
+                type: "combobox",
+                label: "Combobox Disabled",
+                orientation: "horizontal",
+                props: {
+                  disabled: true,
+                  value: selectedCombobox,
+                  onValueChange: (value) => {
+                    console.log("selectedCombobox", value);
+                    setSelectedCombobox(value);
+                  },
+                  options: [
+                    { value: "OPTION_1", label: "Option 1" },
+                    { value: "OPTION_2", label: "Option 2" },
+                    { value: "OPTION_3", label: "Option 3", disabled: true },
+                  ],
+                },
+              },
+            ]}
+          />
+        </div>
+      ),
+    },
+    {
       value: "field-set-date-picker",
       trigger: "FieldSet (Date Picker)",
       content: (
@@ -272,6 +339,25 @@ export default function Home() {
                   ],
                 },
               },
+              {
+                id: "field-set-select-disabled",
+                type: "select",
+                label: "Select Disabled",
+                orientation: "vertical",
+                props: {
+                  disabled: true,
+                  value: selectedFieldSetSelect,
+                  onValueChange: (value) => {
+                    console.log("selectedFieldSetSelect", value);
+                    setSelectedFieldSetSelect(value);
+                  },
+                  options: [
+                    { value: "OPTION_1", label: "Option 1" },
+                    { value: "OPTION_2", label: "Option 2" },
+                    { value: "OPTION_3", label: "Option 3", disabled: true },
+                  ],
+                },
+              },
             ]}
           />
         </div>
@@ -407,6 +493,20 @@ export default function Home() {
                 },
               },
               {
+                id: "field-set-input-disabled",
+                type: "input",
+                label: "Input Disabled",
+                orientation: "horizontal",
+                props: {
+                  disabled: true,
+                  defaultValue: "Field Value",
+                  placeholder: "Field Placeholder",
+                  onChange: (e) => {
+                    console.log("value", e.target.value);
+                  },
+                },
+              },
+              {
                 id: "field-set-textarea-vertical",
                 type: "textarea",
                 label: "Textarea Vertical",
@@ -423,6 +523,19 @@ export default function Home() {
                 type: "textarea",
                 label: "Textarea Horizontal",
                 orientation: "horizontal",
+              },
+              {
+                id: "field-set-textarea-disabled",
+                type: "textarea",
+                label: "Textarea Disabled",
+                orientation: "vertical",
+                props: {
+                  disabled: true,
+                  placeholder: "Field Textarea Placeholder",
+                  onChange: (e) => {
+                    console.log("value", e.target.value);
+                  },
+                },
               },
             ]}
           />
@@ -790,6 +903,7 @@ export default function Home() {
       content: (
         <div className="flex justify-center items-center flex-col gap-2 p-2">
           <Input />
+          <Input disabled defaultValue="Disabled Input" />
         </div>
       ),
     },

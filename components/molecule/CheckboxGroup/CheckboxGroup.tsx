@@ -32,7 +32,7 @@ export const CheckboxGroup = ({
     <div
       {...props}
       className={cn(
-        "flex flex-col gap-3",
+        "flex flex-col gap-3 flex-wrap",
         direction === "horizontal" ? "flex-row" : "flex-col",
         className
       )}

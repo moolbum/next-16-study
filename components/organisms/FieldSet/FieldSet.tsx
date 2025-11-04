@@ -1,14 +1,15 @@
 "use client";
 
+import { isString } from "es-toolkit/predicate";
 import {
   Field,
+  FieldContent,
   FieldDescription,
   FieldGroup,
   FieldLabel,
   FieldSet as FieldSetComponent,
 } from "@/components/ui/field";
 import { FieldSetItems, FieldSetProps } from "./FieldSet.type";
-import { isString } from "es-toolkit/predicate";
 import { Input, Select, Switch, Textarea } from "@/components/atoms";
 import {
   CheckboxGroup,
@@ -17,6 +18,7 @@ import {
   DateRangePicker,
   RadioGroup,
 } from "@/components/molecule";
+
 export const FieldSet = ({ items, ...props }: FieldSetProps) => {
   const renderLabel = (
     item: FieldSetItems,
@@ -86,7 +88,7 @@ export const FieldSet = ({ items, ...props }: FieldSetProps) => {
             <Field key={id} orientation={orientation} {...fieldProps}>
               {renderLabel(item, label)}
               {description && renderDescription(item, description)}
-              {renderContent(item)}
+              <FieldContent>{renderContent(item)}</FieldContent>
             </Field>
           );
         })}

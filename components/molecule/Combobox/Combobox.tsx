@@ -28,6 +28,7 @@ export const Combobox = ({
   buttonClassName,
   contentClassName,
   children,
+  disabled,
   ...props
 }: ComboboxProps) => {
   // 내부 상태 관리 (제어되지 않는 경우)
@@ -39,8 +40,10 @@ export const Combobox = ({
   const triggerRef = useRef<HTMLButtonElement>(null);
 
   // 제어/비제어 모드 처리
-  const open = controlledOpen ?? internalOpen;
-  const onOpenChange = controlledOnOpenChange ?? setInternalOpen;
+  const open = disabled ? false : controlledOpen ?? internalOpen;
+  const onOpenChange = disabled
+    ? () => {}
+    : controlledOnOpenChange ?? setInternalOpen;
   const currentValue = value ?? internalValue;
 
   // trigger의 너비 측정
@@ -52,6 +55,8 @@ export const Combobox = ({
 
   // 값 변경 핸들러
   const handleValueChange = (newValue: string) => {
+    if (disabled) return;
+
     const finalValue = newValue === currentValue ? "" : newValue;
 
     if (value === undefined) {
@@ -79,16 +84,19 @@ export const Combobox = ({
   }
 
   const triggerButton = (
-    <Button
-      ref={triggerRef}
-      variant="outline"
-      role="combobox"
-      aria-expanded={open}
-      className={cn("w-full justify-between", buttonClassName)}
-    >
-      {selectedLabel || placeholder}
-      <ChevronsUpDown className="ml-2 h-4 w-4 shrink-0 opacity-50" />
-    </Button>
+    <div className={cn(disabled && "cursor-not-allowed", "w-full")}>
+      <Button
+        ref={triggerRef}
+        variant="outline"
+        role="combobox"
+        aria-expanded={open}
+        disabled={disabled}
+        className={cn("w-full justify-between", buttonClassName)}
+      >
+        {selectedLabel || placeholder}
+        <ChevronsUpDown className="ml-2 h-4 w-4 shrink-0 opacity-50" />
+      </Button>
+    </div>
   );
 
   const commandContent = (

@@ -62,6 +62,7 @@ export type FieldSetItems = {
     React.ComponentProps<typeof FieldDescription>,
     "children"
   >;
+  disabled?: boolean;
 } & FieldSetItem &
   React.ComponentProps<typeof Field>;
 

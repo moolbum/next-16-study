@@ -17,6 +17,8 @@ export type ComboboxProps = {
   onValueChange?: (value: string) => void;
   /** 버튼에 표시할 플레이스홀더 텍스트 */
   placeholder?: string;
+  /** 버튼 비활성화 여부 */
+  disabled?: boolean;
   /** CommandInput의 placeholder 텍스트 */
   searchPlaceholder?: string;
   /** 검색 결과가 없을 때 표시할 메시지 */
