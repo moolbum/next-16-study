@@ -7,6 +7,7 @@ export * from "./Select/Select";
 export * from "./Switch/Switch";
 export * from "./Textarea/Textarea";
 export * from "./Tooltip/Tooltip";
+export * from "./Tabs/Tabs";
 export * from "./Alert/Alert";
 export * from "./Accordion/Accordion";
 export * from "./Popover/Popover";

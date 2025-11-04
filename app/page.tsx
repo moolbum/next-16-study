@@ -21,6 +21,7 @@ import {
   Item,
   Empty,
   Skeleton,
+  Tabs,
 } from "@/components/atoms";
 import {
   Dialog,
@@ -50,8 +51,45 @@ export default function Home() {
   const [selectedDateRangePicker, setSelectedDateRangePicker] = useState<
     DateRange | undefined
   >(undefined);
+  const [selectedTab, setSelectedTab] = useState<string | undefined>(
+    "tabs_item_a"
+  );
+
+  const TABS_ITEMS = [
+    {
+      value: "tabs_item_a",
+      label: "Tabs Item A",
+      content: (
+        <div className="flex justify-center items-center flex-col gap-2">
+          <p>Tabs Item A</p>
+        </div>
+      ),
+    },
+    {
+      value: "tabs_item_b",
+      label: "Tabs Item B",
+      content: (
+        <div className="flex justify-center items-center flex-col gap-2">
+          <p>Tabs Item B</p>
+        </div>
+      ),
+    },
+  ];
 
   const ACCORDION_ITEMS = [
+    {
+      value: "tabs",
+      trigger: "Tabs",
+      content: (
+        <div className="flex justify-center items-center flex-col gap-2">
+          <Tabs
+            value={selectedTab}
+            onValueChange={setSelectedTab}
+            tabs={TABS_ITEMS}
+          />
+        </div>
+      ),
+    },
     {
       value: "skeleton",
       trigger: "Skeleton",
