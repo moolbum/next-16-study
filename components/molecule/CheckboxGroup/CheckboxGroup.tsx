@@ -1,8 +1,7 @@
 "use client";
 
 import { useId } from "react";
-import { Label } from "@/components/atoms";
-import { Checkbox } from "@/components/atoms/Checkbox/Checkbox";
+import { Label, Checkbox } from "@/components/atoms";
 import { CheckboxGroupProps } from "./CheckboxGroup.type";
 import { cn } from "@/lib/utils";
 

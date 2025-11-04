@@ -27,12 +27,32 @@ export const RadioGroup = ({
       )}
     >
       {options.map((item) => {
-        const uniqueId = `${groupId}-${item.value}`;
+        const {
+          value: itemValue,
+          label,
+          labelProps,
+          disabled,
+          ...radioProps
+        } = item;
+        const isDisabled = disabled === true;
+        const uniqueId = `${groupId}-${itemValue}`;
         return (
-          <div key={item.value} className="flex items-center gap-2">
-            <RadioGroupItem {...item} value={item.value} id={uniqueId} />
-            <Label htmlFor={uniqueId} {...item.labelProps}>
-              {item.label}
+          <div key={itemValue} className="flex items-center gap-2">
+            <RadioGroupItem
+              {...radioProps}
+              value={itemValue}
+              id={uniqueId}
+              disabled={isDisabled}
+            />
+            <Label
+              htmlFor={uniqueId}
+              {...labelProps}
+              className={cn(
+                !isDisabled && "cursor-pointer",
+                labelProps?.className
+              )}
+            >
+              {label}
             </Label>
           </div>
         );
