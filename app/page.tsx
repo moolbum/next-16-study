@@ -105,6 +105,82 @@ export default function Home() {
 
   const ACCORDION_ITEMS = [
     {
+      value: "field-set-date-picker",
+      trigger: "FieldSet (Date Picker)",
+      content: (
+        <div className="flex justify-center items-center flex-col gap-2 p-2">
+          <FieldSet
+            items={[
+              {
+                id: "field-set-date-picker-horizontal",
+                type: "datePicker",
+                label: "Date Picker Horizontal",
+                orientation: "horizontal",
+                props: {
+                  date: selectedDate,
+                  onSelect: (value: Date | undefined) => {
+                    console.log("selectedDatePicker", value);
+                    setSelectedDate(value);
+                  },
+                },
+              },
+              {
+                id: "field-set-date-picker-vertical",
+                type: "datePicker",
+                label: "Date Picker Vertical",
+                orientation: "vertical",
+                props: {
+                  date: selectedDate,
+                  onSelect: (value: Date | undefined) => {
+                    console.log("selectedDatePicker", value);
+                    setSelectedDate(value);
+                  },
+                },
+              },
+            ]}
+          />
+        </div>
+      ),
+    },
+    {
+      value: "field-set-date-range-picker",
+      trigger: "FieldSet (Date Range Picker)",
+      content: (
+        <div className="flex justify-center items-center flex-col gap-2 p-2">
+          <FieldSet
+            items={[
+              {
+                id: "field-set-date-range-picker-horizontal",
+                type: "dateRangePicker",
+                label: "Date Range Picker Horizontal",
+                orientation: "horizontal",
+                props: {
+                  date: selectedDateRangePicker,
+                  onSelect: (value: DateRange | undefined) => {
+                    console.log("selectedDateRangePicker", value);
+                    setSelectedDateRangePicker(value);
+                  },
+                },
+              },
+              {
+                id: "field-set-date-range-picker-vertical",
+                type: "dateRangePicker",
+                label: "Date Range Picker Vertical",
+                orientation: "vertical",
+                props: {
+                  date: selectedDateRangePicker,
+                  onSelect: (value: DateRange | undefined) => {
+                    console.log("selectedDateRangePicker", value);
+                    setSelectedDateRangePicker(value);
+                  },
+                },
+              },
+            ]}
+          />
+        </div>
+      ),
+    },
+    {
       value: "field-set-switch",
       trigger: "FieldSet (Switch)",
       content: (
