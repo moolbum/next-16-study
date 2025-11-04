@@ -11,7 +11,13 @@ import {
 import { FieldSetItems, FieldSetProps } from "./FieldSet.type";
 import { isString } from "es-toolkit/predicate";
 import { Input, Select, Switch, Textarea } from "@/components/atoms";
-import { Combobox, DatePicker, DateRangePicker } from "@/components/molecule";
+import {
+  CheckboxGroup,
+  Combobox,
+  DatePicker,
+  DateRangePicker,
+  RadioGroup,
+} from "@/components/molecule";
 
 export const FieldSet = ({ items, ...props }: FieldSetProps) => {
   const renderLabel = (
@@ -52,10 +58,10 @@ export const FieldSet = ({ items, ...props }: FieldSetProps) => {
         return <Select {...item.props} />;
       case "combobox":
         return <Combobox {...item.props} />;
-      // case "checkbox":
-      //   return <Checkbox {...item.props} />;
-      // case "radio":
-      //   return <Radio {...item.props} />;
+      case "checkboxGroup":
+        return item.props?.options ? <CheckboxGroup {...item.props} /> : null;
+      case "radioGroup":
+        return item.props?.options ? <RadioGroup {...item.props} /> : null;
       case "switch":
         return <Switch {...item.props} />;
       case "datePicker":
