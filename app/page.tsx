@@ -117,6 +117,7 @@ export default function Home() {
                 label: "Date Picker Horizontal",
                 orientation: "horizontal",
                 props: {
+                  disabled: true,
                   date: selectedDate,
                   onSelect: (value: Date | undefined) => {
                     console.log("selectedDatePicker", value);
@@ -155,6 +156,7 @@ export default function Home() {
                 label: "Date Range Picker Horizontal",
                 orientation: "horizontal",
                 props: {
+                  disabled: true,
                   date: selectedDateRangePicker,
                   onSelect: (value: DateRange | undefined) => {
                     console.log("selectedDateRangePicker", value);

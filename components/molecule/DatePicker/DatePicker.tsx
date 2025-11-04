@@ -70,7 +70,12 @@ export const DatePicker = ({
     props as React.ComponentProps<typeof Calendar>;
 
   return (
-    <div className="flex flex-col gap-3 w-full">
+    <div
+      className={cn(
+        "flex flex-col gap-3 w-full",
+        disabled && "cursor-not-allowed"
+      )}
+    >
       <Popover open={open} onOpenChange={onOpenChange} modal={modal} {...props}>
         <PopoverTrigger asChild>
           <Button
