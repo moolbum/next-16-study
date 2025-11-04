@@ -6,16 +6,16 @@
 
 ## 🚀 프로젝트 개요
 
-| 항목                         | 내용                                                    |
-| ---------------------------- | ------------------------------------------------------- |
-| 프레임워크                   | Next 16 (App router), turbopack                         |
-| 타입 시스템                  | TypeScript                                              |
-| 스타일                       | TailwindCSS, Shadcn,                                    |
-| UI(아이콘, toast, calender)  | lucide-react, sonner, react-day-picker                  |
-| API 상태관리                 | tanstack query                                          |
-| 유틸 라이브러리              | es-toolkit, overlay-kit, clsx, class-variance-authority |
-| 유닛, 통합 테스트 (추가예정) | Vitest, React Testing Library                           |
-| E2E 테스트 (추가예정)        | Playwright                                              |
+| 항목                         | 내용                                                                                                                                                                                                                                             |
+| ---------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| 프레임워크                   | [NextJS 16](https://nextjs.org/) (App router), turbopack                                                                                                                                                                                         |
+| 타입 시스템                  | [TypeScript](https://www.typescriptlang.org/)                                                                                                                                                                                                    |
+| 스타일                       | [TailwindCSS](https://tailwindcss.com/), [Shadcn](https://ui.shadcn.com/),                                                                                                                                                                       |
+| UI(아이콘, toast, calender)  | [lucide-react](https://lucide.dev/icons/), sonner, react-day-picker                                                                                                                                                                              |
+| API 상태관리                 | [tanstack query](https://tanstack.com/query/latest/docs/framework/react/overview)                                                                                                                                                                |
+| 유틸 라이브러리              | [es-toolkit](https://es-toolkit.dev/ko/), [overlay-kit](https://overlay-kit.slash.page/ko/docs/guides/introduction), [react-error-boundary](https://github.com/bvaughn/react-error-boundary), [class-variance-authority](https://cva.style/docs) |
+| 유닛, 통합 테스트 (추가예정) | [Vitest](https://vitest.dev/), [React TestingLibrary](https://testing-library.com/docs/react-testing-library/intro/)                                                                                                                             |
+| E2E 테스트 (추가예정)        | [Playwright](https://playwright.dev/)                                                                                                                                                                                                            |
 
 ## ⚙️ 시스템 요구사항
 
