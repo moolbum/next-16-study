@@ -75,7 +75,12 @@ export default function Home() {
   const [selectedFieldSetRadioGroup, setSelectedFieldSetRadioGroup] = useState<
     string | undefined
   >(undefined);
+  const [selectedFieldSetSelect, setSelectedFieldSetSelect] = useState<
+    string | undefined
+  >(undefined);
   const [accordionValues, setAccordionValues] = useState<string[]>([]);
+  const [selectedFieldSetSwitch, setSelectedFieldSetSwitch] =
+    useState<boolean>(false);
 
   const TABS_ITEMS = [
     {
@@ -99,6 +104,101 @@ export default function Home() {
   ];
 
   const ACCORDION_ITEMS = [
+    {
+      value: "field-set-switch",
+      trigger: "FieldSet (Switch)",
+      content: (
+        <div className="flex justify-center items-center flex-col gap-2 p-2">
+          <FieldSet
+            items={[
+              {
+                id: "field-set-switch-horizontal",
+                type: "switch",
+                label: "Switch Horizontal",
+                orientation: "horizontal",
+                props: {
+                  checked: selectedFieldSetSwitch,
+                  onCheckedChange: (checked: boolean) => {
+                    console.log("selectedFieldSetSwitch", checked);
+                    setSelectedFieldSetSwitch(checked);
+                  },
+                },
+              },
+              {
+                id: "field-set-switch-vertical",
+                type: "switch",
+                label: "Switch Vertical",
+                orientation: "vertical",
+                props: {
+                  checked: selectedFieldSetSwitch,
+                  onCheckedChange: (checked: boolean) => {
+                    console.log("selectedFieldSetSwitch", checked);
+                    setSelectedFieldSetSwitch(checked);
+                  },
+                },
+              },
+              {
+                id: "field-set-switch-disabled",
+                type: "switch",
+                label: "Switch Disabled",
+                orientation: "vertical",
+                props: {
+                  disabled: true,
+                },
+              },
+            ]}
+          />
+        </div>
+      ),
+    },
+    {
+      value: "field-set-select",
+      trigger: "FieldSet (Select)",
+      content: (
+        <div className="flex justify-center items-center flex-col gap-2 p-2">
+          <FieldSet
+            items={[
+              {
+                id: "field-set-select-horizontal",
+                type: "select",
+                label: "Select Horizontal",
+                orientation: "horizontal",
+                props: {
+                  value: selectedFieldSetSelect,
+                  onValueChange: (value) => {
+                    console.log("selectedFieldSetSelect", value);
+                    setSelectedFieldSetSelect(value);
+                  },
+                  options: [
+                    { value: "OPTION_1", label: "Option 1" },
+                    { value: "OPTION_2", label: "Option 2" },
+                    { value: "OPTION_3", label: "Option 3", disabled: true },
+                  ],
+                },
+              },
+              {
+                id: "field-set-select-vertical",
+                type: "select",
+                label: "Select Vertical",
+                orientation: "vertical",
+                props: {
+                  value: selectedFieldSetSelect,
+                  onValueChange: (value) => {
+                    console.log("selectedFieldSetSelect", value);
+                    setSelectedFieldSetSelect(value);
+                  },
+                  options: [
+                    { value: "OPTION_1", label: "Option 1" },
+                    { value: "OPTION_2", label: "Option 2" },
+                    { value: "OPTION_3", label: "Option 3", disabled: true },
+                  ],
+                },
+              },
+            ]}
+          />
+        </div>
+      ),
+    },
     {
       value: "field-set-radio-group",
       trigger: "FieldSet (Radio Group)",
