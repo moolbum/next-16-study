@@ -23,7 +23,7 @@
 - Node.js >= 20.10.0
 - yarn
 
-## ⚙️ 설치 및 실행
+## ⚙️ 로컬 설치 및 실행
 
 ```bash
 # 의존성 설치
@@ -31,12 +31,6 @@ yarn install
 
 # 로컬 실행
 yarn dev
-
-# 빌드
-yarn build
-
-# 생성된 빌드 파일 기반 실행
-yarn start
 ```
 
 ### 스크립트 명령어 모음
@@ -44,6 +38,8 @@ yarn start
 - `yarn dev`: 개발 환경 서버 실행
 - `yarn build`: 빌드 생성
 - `yarn start`: 생성된 빌드 파일 기반 실행
+- `yarn lint`: ESLint 포맷팅 검사
+- `yarn lint:fix`: ESLint 포맷팅 자동변경
 
 ## 🗂️ 프로젝트 구조
 
