@@ -1,6 +1,5 @@
 import type { Metadata } from 'next';
 import { Geist, Geist_Mono } from 'next/font/google';
-import { StoreProvider } from '@/stores';
 import './globals.css';
 
 import { DefaultHeader } from '@/components/templates';
@@ -28,14 +27,37 @@ export default function RootLayout({
 }>) {
 	return (
 		<html lang="en" suppressHydrationWarning>
-			<body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
-				<StoreProvider>
-					<main>
-						<DefaultHeader />
-						{children}
-					</main>
-					<Toaster position="top-center" />
-				</StoreProvider>
+			<body
+				className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+				suppressHydrationWarning
+			>
+				<script
+					dangerouslySetInnerHTML={{
+						__html: `
+							(function() {
+								try {
+									const theme = localStorage.getItem('theme-storage');
+									if (theme) {
+										const parsed = JSON.parse(theme);
+										if (parsed.state?.theme === 'dark') {
+											document.documentElement.classList.add('dark');
+										} else {
+											document.documentElement.classList.remove('dark');
+										}
+									}
+								} catch (e) {
+									// localStorage 접근 실패 시 무시
+								}
+							})();
+						`,
+					}}
+				/>
+
+				<main>
+					<DefaultHeader />
+					{children}
+				</main>
+				<Toaster position="top-center" />
 			</body>
 		</html>
 	);
