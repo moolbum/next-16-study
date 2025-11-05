@@ -1,4 +1,4 @@
-import { Alert as AlertComponent, AlertTitle, AlertDescription } from '@/components/ui/alert';
+import { Alert as AlertComponent, AlertDescription, AlertTitle } from '@/components/ui/alert';
 import { AlertProps } from './Alert.type';
 
 export const Alert = ({ icon, title, description, ...props }: AlertProps) => {

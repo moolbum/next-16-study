@@ -1,2 +1,2 @@
-export * from './useTheme/useTheme';
 export * from './StoreProvider';
+export * from './useTheme/useTheme';

@@ -2,12 +2,12 @@
 
 import {
 	Card as CardComponent,
-	CardHeader as CardHeaderComponent,
-	CardTitle as CardTitleComponent,
-	CardDescription as CardDescriptionComponent,
 	CardAction as CardActionComponent,
 	CardContent as CardContentComponent,
+	CardDescription as CardDescriptionComponent,
 	CardFooter as CardFooterComponent,
+	CardHeader as CardHeaderComponent,
+	CardTitle as CardTitleComponent,
 } from '@/components/ui/card';
 import { CardProps } from './Card.type';
 

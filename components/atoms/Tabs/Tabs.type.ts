@@ -1,9 +1,10 @@
 import React from 'react';
+
 import {
 	Tabs as TabsComponent,
+	TabsContent as TabsContentComponent,
 	TabsList as TabsListComponent,
 	TabsTrigger as TabsTriggerComponent,
-	TabsContent as TabsContentComponent,
 } from '@/components/ui/tabs';
 
 export type TabItem = {

@@ -1,5 +1,6 @@
 import React from 'react';
-import { Popover, Button, Calendar } from '@/components/atoms';
+
+import { Button, Calendar, Popover } from '@/components/atoms';
 import { PopoverContent as PopoverContentComponent } from '@/components/ui/popover';
 
 export type DatePickerProps = {

@@ -1,6 +1,8 @@
 'use client';
 
 import React from 'react';
+
+import { Button } from '@/components/atoms/Button/Button';
 import {
 	DropdownMenu as DropdownMenuComponent,
 	DropdownMenuContent,
@@ -11,7 +13,6 @@ import {
 	DropdownMenuShortcut,
 	DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
-import { Button } from '@/components/atoms/Button/Button';
 import { DropdownMenuProps } from './DropdownMenu.type';
 
 export const DropdownMenu = ({

@@ -2,13 +2,13 @@
 
 import {
 	Item as ItemComponent,
-	ItemMedia,
-	ItemContent,
-	ItemTitle,
-	ItemDescription,
 	ItemActions,
-	ItemHeader,
+	ItemContent,
+	ItemDescription,
 	ItemFooter,
+	ItemHeader,
+	ItemMedia,
+	ItemTitle,
 } from '@/components/ui/item';
 import { ItemProps } from './Item.type';
 

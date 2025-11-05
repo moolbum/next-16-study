@@ -1,6 +1,7 @@
 import React from 'react';
 import { DateRange } from 'react-day-picker';
-import { Popover, Button, Calendar } from '@/components/atoms';
+
+import { Button, Calendar, Popover } from '@/components/atoms';
 import { PopoverContent as PopoverContentComponent } from '@/components/ui/popover';
 
 export type DateRangePickerProps = {

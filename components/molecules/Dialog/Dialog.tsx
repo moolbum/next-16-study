@@ -2,10 +2,10 @@
 import {
 	Dialog as DialogComponent,
 	DialogContent as DialogContentComponent,
-	DialogHeader as DialogHeaderComponent,
-	DialogTitle as DialogTitleComponent,
 	DialogDescription as DialogDescriptionComponent,
 	DialogFooter as DialogFooterComponent,
+	DialogHeader as DialogHeaderComponent,
+	DialogTitle as DialogTitleComponent,
 	DialogTrigger as DialogTriggerComponent,
 } from '@/components/ui/dialog';
 import { DialogProps } from './Dialog.type';

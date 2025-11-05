@@ -1,10 +1,11 @@
+import React from 'react';
+
 import {
 	DropdownMenu as DropdownMenuComponent,
 	DropdownMenuContent,
 	DropdownMenuItem,
 	DropdownMenuLabel,
 } from '@/components/ui/dropdown-menu';
-import React from 'react';
 
 // DropdownMenuItem의 기존 타입을 활용하면서 자동 렌더링을 위한 확장
 export type DropdownMenuItemType = Omit<

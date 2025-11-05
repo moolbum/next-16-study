@@ -1,9 +1,10 @@
 'use client';
 
 import { useId } from 'react';
-import { Label, Checkbox } from '@/components/atoms';
-import { CheckboxGroupProps } from './CheckboxGroup.type';
 import { cn } from '@/lib/utils';
+
+import { Checkbox, Label } from '@/components/atoms';
+import { CheckboxGroupProps } from './CheckboxGroup.type';
 
 export const CheckboxGroup = ({
 	options,

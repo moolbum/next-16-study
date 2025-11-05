@@ -1,10 +1,11 @@
+import React from 'react';
+
 import {
 	Command as CommandComponent,
-	CommandItem,
 	CommandGroup,
 	CommandInput,
+	CommandItem,
 } from '@/components/ui/command';
-import React from 'react';
 
 // CommandItem의 기존 타입을 활용하면서 자동 렌더링을 위한 확장
 export type CommandItemType = Omit<React.ComponentProps<typeof CommandItem>, 'children'> & {

@@ -1,4 +1,5 @@
 import React from 'react';
+
 import { Accordion as AccordionComponent } from '@/components/ui/accordion';
 
 export type AccordionItemType = {

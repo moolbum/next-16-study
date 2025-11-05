@@ -1,8 +1,10 @@
 'use client';
 
-import { useState, useRef, useEffect } from 'react';
-import { Check, ChevronsUpDown } from 'lucide-react';
+import { useEffect, useRef, useState } from 'react';
 import { cn } from '@/lib/utils';
+import { PLACEHOLDERS, STRINGS } from '@/constants';
+import { Check, ChevronsUpDown } from 'lucide-react';
+
 import { Button, Popover } from '@/components/atoms';
 import {
 	Command,
@@ -13,7 +15,6 @@ import {
 	CommandList,
 } from '@/components/ui/command';
 import { ComboboxProps } from './Combobox.type';
-import { PLACEHOLDERS, STRINGS } from '@/constants';
 
 export const Combobox = ({
 	options,

@@ -1,5 +1,6 @@
-import { Item as ItemComponent } from '@/components/ui/item';
 import React from 'react';
+
+import { Item as ItemComponent } from '@/components/ui/item';
 
 export type ItemProps = React.ComponentProps<typeof ItemComponent> & {
 	children?: React.ReactNode;

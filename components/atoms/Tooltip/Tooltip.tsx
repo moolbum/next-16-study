@@ -1,7 +1,7 @@
 import {
 	Tooltip as TooltipComponent,
-	TooltipTrigger,
 	TooltipContent,
+	TooltipTrigger,
 } from '@/components/ui/tooltip';
 import { TooltipProps } from './Tooltip.type';
 

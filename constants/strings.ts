@@ -8,4 +8,4 @@ const PLACEHOLDERS = {
 	SEARCH: 'Search',
 };
 
-export { STRINGS, PLACEHOLDERS };
+export { PLACEHOLDERS, STRINGS };

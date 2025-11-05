@@ -1,6 +1,7 @@
 import React from 'react';
-import { Popover as PopoverComponent } from '@/components/ui/popover';
+
 import { Command as CommandComponent } from '@/components/ui/command';
+import { Popover as PopoverComponent } from '@/components/ui/popover';
 
 export type ComboboxOption = {
 	value: string;

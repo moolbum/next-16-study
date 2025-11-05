@@ -1,5 +1,7 @@
 'use client';
 
+import { cn } from '@/lib/utils';
+
 import {
 	Select as SelectComponent,
 	SelectContent,
@@ -9,8 +11,7 @@ import {
 	SelectTrigger,
 	SelectValue,
 } from '@/components/ui/select';
-import { SelectProps, SelectOption, SelectOptionGroup } from './Select.type';
-import { cn } from '@/lib/utils';
+import { SelectOption, SelectOptionGroup, SelectProps } from './Select.type';
 
 // 옵션 그룹인지 확인하는 함수
 const isOptionGroup = (option: SelectOption | SelectOptionGroup): option is SelectOptionGroup => {

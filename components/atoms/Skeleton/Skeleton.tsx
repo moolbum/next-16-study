@@ -1,6 +1,7 @@
+import { cn } from '@/lib/utils';
+
 import { Skeleton as SkeletonComponent } from '@/components/ui/skeleton';
 import { SkeletonProps } from './Skeleton.type';
-import { cn } from '@/lib/utils';
 
 export const Skeleton = ({ type, className, ...props }: SkeletonProps) => {
 	switch (type) {
