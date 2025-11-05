@@ -1,7 +1,7 @@
-"use client";
+'use client';
 
-import { useEffect } from "react";
-import { useTheme } from "./useTheme/useTheme";
+import { useEffect } from 'react';
+import { useTheme } from './useTheme/useTheme';
 
 /**
  * 전역 Zustand Store Provider
@@ -11,17 +11,17 @@ import { useTheme } from "./useTheme/useTheme";
  * 모든 스토어의 초기화 로직을 여기에 모아서 관리
  */
 export const StoreProvider = ({ children }: { children: React.ReactNode }) => {
-  const { theme } = useTheme();
+	const { theme } = useTheme();
 
-  useEffect(() => {
-    // 테마 변경 시 DOM에 적용
-    const root = document.documentElement;
-    if (theme === "dark") {
-      root.classList.add("dark");
-    } else {
-      root.classList.remove("dark");
-    }
-  }, [theme]);
+	useEffect(() => {
+		// 테마 변경 시 DOM에 적용
+		const root = document.documentElement;
+		if (theme === 'dark') {
+			root.classList.add('dark');
+		} else {
+			root.classList.remove('dark');
+		}
+	}, [theme]);
 
-  return <>{children}</>;
+	return <>{children}</>;
 };

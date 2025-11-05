@@ -1,27 +1,25 @@
-import React from "react";
+import React from 'react';
 import {
-  Tabs as TabsComponent,
-  TabsList as TabsListComponent,
-  TabsTrigger as TabsTriggerComponent,
-  TabsContent as TabsContentComponent,
-} from "@/components/ui/tabs";
+	Tabs as TabsComponent,
+	TabsList as TabsListComponent,
+	TabsTrigger as TabsTriggerComponent,
+	TabsContent as TabsContentComponent,
+} from '@/components/ui/tabs';
 
 export type TabItem = {
-  value: string;
-  label: string;
-  content: React.ReactNode;
-  icon?: React.ReactNode;
-  contentClassName?: React.ComponentProps<
-    typeof TabsContentComponent
-  >["className"];
-  disabled?: React.ComponentProps<typeof TabsTriggerComponent>["disabled"];
-  className?: React.ComponentProps<typeof TabsTriggerComponent>["className"];
+	value: string;
+	label: string;
+	content: React.ReactNode;
+	icon?: React.ReactNode;
+	contentClassName?: React.ComponentProps<typeof TabsContentComponent>['className'];
+	disabled?: React.ComponentProps<typeof TabsTriggerComponent>['disabled'];
+	className?: React.ComponentProps<typeof TabsTriggerComponent>['className'];
 } & Omit<
-  React.ComponentProps<typeof TabsTriggerComponent>,
-  "value" | "children" | "disabled" | "className" | "content"
+	React.ComponentProps<typeof TabsTriggerComponent>,
+	'value' | 'children' | 'disabled' | 'className' | 'content'
 >;
 
 export type TabsProps = React.ComponentProps<typeof TabsComponent> & {
-  children?: React.ReactNode;
-  tabs?: TabItem[];
-} & Pick<React.ComponentProps<typeof TabsListComponent>, "className">;
+	children?: React.ReactNode;
+	tabs?: TabItem[];
+} & Pick<React.ComponentProps<typeof TabsListComponent>, 'className'>;

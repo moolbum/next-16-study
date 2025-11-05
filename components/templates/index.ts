@@ -1,1 +1,1 @@
-export * from "./DefaultHeader/DefaultHeader";
+export * from './DefaultHeader/DefaultHeader';
