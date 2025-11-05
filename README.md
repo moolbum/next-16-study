@@ -13,6 +13,7 @@
 | 스타일                       | [TailwindCSS](https://tailwindcss.com/), [Shadcn](https://ui.shadcn.com/),                                                                                                                                                                       |
 | UI(아이콘, toast, calender)  | [lucide-react](https://lucide.dev/icons/), sonner, react-day-picker                                                                                                                                                                              |
 | API 상태관리                 | [tanstack query](https://tanstack.com/query/latest/docs/framework/react/overview)                                                                                                                                                                |
+| 상태관리                     | [zustand](https://github.com/pmndrs/zustand), [react-hook-form](https://react-hook-form.com/get-started)                                                                                                                                         |
 | 유틸 라이브러리              | [es-toolkit](https://es-toolkit.dev/ko/), [overlay-kit](https://overlay-kit.slash.page/ko/docs/guides/introduction), [react-error-boundary](https://github.com/bvaughn/react-error-boundary), [class-variance-authority](https://cva.style/docs) |
 | 유닛, 통합 테스트 (추가예정) | [Vitest](https://vitest.dev/), [React TestingLibrary](https://testing-library.com/docs/react-testing-library/intro/)                                                                                                                             |
 | E2E 테스트 (추가예정)        | [Playwright](https://playwright.dev/)                                                                                                                                                                                                            |
@@ -68,6 +69,7 @@ yarn start
 ├── constants/                # 상수 관련
 ├── lib/                      # 유틸 함수
 ├── public/                   # 정적 파일 저장소
+├── stores/                   # 전역 데이터 저장소
 ├── .gitignore
 ├── .nvmrc
 ├── components.json
