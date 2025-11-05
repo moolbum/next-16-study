@@ -70,15 +70,17 @@ yarn start
 ├── lib/                      # 유틸 함수
 ├── public/                   # 정적 파일 저장소
 ├── stores/                   # 전역 데이터 저장소
-├── .gitignore
-├── .nvmrc
-├── components.json
-├── eslint.config.mjs
-├── next.config.ts
-├── package.json
-├── postcss.config.mjs
-├── tsconfig.json
-└── yarn.lock
+├── .gitignore                # git 히스토리 무시설정
+├── .nvmrc                    # Node 최소버전알림
+├── .prettierignore           # prettierrc 무시설정
+├── .prettierrc               # prettierrc 설정
+├── components.json           # Shadcn UI 기본정보
+├── eslint.config.mjs         # ESLint 설정
+├── next.config.ts            # NextJS 설정
+├── package.json              # 프로젝트 패키지 관리 및 스크립트 설정
+├── postcss.config.mjs        # Tailwind CSS v4용 PostCSS 플러그인
+├── tsconfig.json             # TypeScript 설정
+└── yarn.lock                 # 프로젝트 실제 설치된 정확한 버전을 기록합니다.
 ```
 
 ### 파일 이름 규칙
