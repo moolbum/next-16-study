@@ -17,7 +17,7 @@ import {
   DatePicker,
   DateRangePicker,
   RadioGroup,
-} from "@/components/molecule";
+} from "@/components/molecules";
 
 export const FieldSet = ({ items, ...props }: FieldSetProps) => {
   const renderLabel = (

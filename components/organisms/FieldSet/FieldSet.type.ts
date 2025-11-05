@@ -1,17 +1,17 @@
 import { InputProps } from "@/components/atoms/Input/Input.type";
 import { TextareaProps } from "@/components/atoms/Textarea/Textarea.type";
 import { SelectProps } from "@/components/atoms/Select/Select.type";
-import { DatePickerProps } from "@/components/molecule/DatePicker/DatePicker.type";
-import { DateRangePickerProps } from "@/components/molecule/DateRangePicker/DateRangePicker.type";
+import { DatePickerProps } from "@/components/molecules/DatePicker/DatePicker.type";
+import { DateRangePickerProps } from "@/components/molecules/DateRangePicker/DateRangePicker.type";
 import { Field, FieldDescription } from "@/components/ui/field";
 import { Label } from "@/components/ui/label";
 import { SwitchProps } from "@radix-ui/react-switch";
-import { CheckboxGroupProps } from "@/components/molecule/CheckboxGroup/CheckboxGroup.type";
-import { RadioGroupProps } from "@/components/molecule/RadioGroup/RadioGroup.type";
+import { CheckboxGroupProps } from "@/components/molecules/CheckboxGroup/CheckboxGroup.type";
+import { RadioGroupProps } from "@/components/molecules/RadioGroup/RadioGroup.type";
 import {
   ComboboxProps,
   ComboboxOption,
-} from "@/components/molecule/Combobox/Combobox.type";
+} from "@/components/molecules/Combobox/Combobox.type";
 
 export type FieldSetItem =
   | {

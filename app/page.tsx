@@ -33,7 +33,7 @@ import {
   Combobox,
   RadioGroup,
   CheckboxGroup,
-} from "@/components/molecule";
+} from "@/components/molecules";
 import { AlertCircleIcon, BookmarkIcon, FolderCode } from "lucide-react";
 import { DateRange } from "react-day-picker";
 import { toast } from "sonner";
@@ -1125,7 +1125,7 @@ export default function Home() {
 
   return (
     <div className="p-4 flex flex-col gap-2">
-      <main className="flex flex-col gap-2 w-full mx-auto">
+      <div className="flex flex-col gap-2 w-full mx-auto">
         {/* Header */}
         <section className="flex items-center gap-3">
           <div className="flex flex-col">
@@ -1157,7 +1157,7 @@ export default function Home() {
             />
           ))}
         </section>
-      </main>
+      </div>
     </div>
   );
 }
