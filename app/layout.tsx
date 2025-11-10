@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import { Geist, Geist_Mono } from 'next/font/google';
 import './globals.css';
 import { getThemeScript } from '@/stores/useTheme/useTheme';
-import { DefaultHeader } from '@/components/templates';
+import { DefaultHeader, Providers } from '@/components/templates';
 import { Toaster } from '@/components/ui/sonner';
 
 const geistSans = Geist({
@@ -37,11 +37,13 @@ export default function RootLayout({
 					}}
 				/>
 
-				<main>
-					<DefaultHeader />
-					{children}
-				</main>
-				<Toaster position="top-center" />
+				<Providers>
+					<main>
+						<DefaultHeader />
+						{children}
+					</main>
+					<Toaster position="top-center" />
+				</Providers>
 			</body>
 		</html>
 	);
