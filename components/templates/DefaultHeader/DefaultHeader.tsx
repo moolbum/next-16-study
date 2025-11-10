@@ -1,9 +1,8 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import { useTheme } from '@/stores/useTheme/useTheme';
 import { Moon, Sun } from 'lucide-react';
-
+import { useTheme } from '@/stores/useTheme/useTheme';
 import { Skeleton } from '@/components/atoms';
 
 export const DefaultHeader = () => {

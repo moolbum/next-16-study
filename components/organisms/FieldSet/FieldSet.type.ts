@@ -1,5 +1,4 @@
 import { SwitchProps } from '@radix-ui/react-switch';
-
 import { InputProps } from '@/components/atoms/Input/Input.type';
 import { SelectProps } from '@/components/atoms/Select/Select.type';
 import { TextareaProps } from '@/components/atoms/Textarea/Textarea.type';

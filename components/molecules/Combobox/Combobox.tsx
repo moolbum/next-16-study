@@ -1,10 +1,9 @@
 'use client';
 
 import { useEffect, useRef, useState } from 'react';
+import { Check, ChevronsUpDown } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { PLACEHOLDERS, STRINGS } from '@/constants';
-import { Check, ChevronsUpDown } from 'lucide-react';
-
 import { Button, Popover } from '@/components/atoms';
 import {
 	Command,

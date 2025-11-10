@@ -2,7 +2,6 @@
 
 import { useId } from 'react';
 import { cn } from '@/lib/utils';
-
 import { Label } from '@/components/atoms';
 import { RadioGroup as RadioGroupComponent, RadioGroupItem } from '@/components/ui/radio-group';
 import { RadioGroupProps } from './RadioGroup.type';

@@ -1,5 +1,4 @@
 import React from 'react';
-
 import { AlertDialog as AlertDialogComponent } from '@/components/ui/alert-dialog';
 
 export type AlertDialogProps = React.ComponentProps<typeof AlertDialogComponent> & {

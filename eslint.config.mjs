@@ -24,19 +24,27 @@ const eslintConfig = defineConfig([
 				'error',
 				{
 					groups: [
-						// 그룹 1: 그 외 (react, next, 외부 라이브러리)
+						/**
+						 * 1. react, react-dom, next
+						 * 2. 절대경로, 외부 라이브러리
+						 * 3. components
+						 * 4. stores, hooks, lib, constants, components
+						 * 5. 상위 디렉토리
+						 * 6. 현재 디렉토리
+						 */
 						[
 							'^react',
 							'^react-dom',
 							'^next',
+							'^',
 							'^@/stores',
 							'^@/hooks',
 							'^@/lib',
 							'^@/constants',
-							'^',
+							'^@/components',
+							'^\\.\\./',
+							'^\\./',
 						],
-						// 그룹 2: components와 절대경로
-						['^@/components', '^\\.\\./', '^\\./'],
 					],
 				},
 			],

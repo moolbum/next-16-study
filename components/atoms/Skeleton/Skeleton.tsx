@@ -1,5 +1,4 @@
 import { cn } from '@/lib/utils';
-
 import { Skeleton as SkeletonComponent } from '@/components/ui/skeleton';
 import { SkeletonProps } from './Skeleton.type';
 

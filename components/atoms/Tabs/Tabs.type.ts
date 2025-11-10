@@ -1,5 +1,4 @@
 import React from 'react';
-
 import {
 	Tabs as TabsComponent,
 	TabsContent as TabsContentComponent,

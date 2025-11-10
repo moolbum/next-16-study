@@ -1,7 +1,6 @@
 'use client';
 
 import { cn } from '@/lib/utils';
-
 import { Input as InputComponent } from '@/components/ui/input';
 import { InputProps } from './Input.type';
 

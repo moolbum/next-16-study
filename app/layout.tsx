@@ -1,8 +1,7 @@
 import type { Metadata } from 'next';
 import { Geist, Geist_Mono } from 'next/font/google';
-import { getThemeScript } from '@/stores/useTheme/useTheme';
 import './globals.css';
-
+import { getThemeScript } from '@/stores/useTheme/useTheme';
 import { DefaultHeader } from '@/components/templates';
 import { Toaster } from '@/components/ui/sonner';
 

@@ -1,6 +1,5 @@
-import { cn } from '@/lib/utils';
 import { SwitchProps } from '@radix-ui/react-switch';
-
+import { cn } from '@/lib/utils';
 import { Switch as SwitchComponent } from '@/components/ui/switch';
 
 export const Switch = ({ children, className, ...props }: SwitchProps) => {

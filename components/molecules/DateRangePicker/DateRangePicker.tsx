@@ -2,9 +2,8 @@
 
 import { useState } from 'react';
 import { DateRange } from 'react-day-picker';
-import { cn } from '@/lib/utils';
 import { ChevronDownIcon } from 'lucide-react';
-
+import { cn } from '@/lib/utils';
 import { Button, Calendar } from '@/components/atoms';
 import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover';
 import { DateRangePickerProps } from './DateRangePicker.type';

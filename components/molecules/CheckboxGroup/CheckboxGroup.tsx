@@ -2,7 +2,6 @@
 
 import { useId } from 'react';
 import { cn } from '@/lib/utils';
-
 import { Checkbox, Label } from '@/components/atoms';
 import { CheckboxGroupProps } from './CheckboxGroup.type';
 
