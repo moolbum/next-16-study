@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import { Geist, Geist_Mono } from 'next/font/google';
+import { getThemeScript } from '@/stores/useTheme/useTheme';
 import './globals.css';
 
 import { DefaultHeader } from '@/components/templates';
@@ -33,23 +34,7 @@ export default function RootLayout({
 			>
 				<script
 					dangerouslySetInnerHTML={{
-						__html: `
-							(function() {
-								try {
-									const theme = localStorage.getItem('theme-storage');
-									if (theme) {
-										const parsed = JSON.parse(theme);
-										if (parsed.state?.theme === 'dark') {
-											document.documentElement.classList.add('dark');
-										} else {
-											document.documentElement.classList.remove('dark');
-										}
-									}
-								} catch (e) {
-									// localStorage 접근 실패 시 무시
-								}
-							})();
-						`,
+						__html: getThemeScript(),
 					}}
 				/>
 

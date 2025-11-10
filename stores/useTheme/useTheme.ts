@@ -24,6 +24,31 @@ const applyThemeToDOM = (theme: Theme) => {
 	}
 };
 
+/**
+ * @description SSR 시 FOUC(Flash of Unstyled Content) 방지를 위한 인라인 스크립트를 생성합니다.
+ * @param storageName - localStorage에 저장된 스토리지 이름 (기본값: 'theme-storage')
+ * @returns 인라인 스크립트 문자열
+ */
+export const getThemeScript = (storageName: string = 'theme-storage'): string => {
+	return `
+		(function() {
+			try {
+				const theme = localStorage.getItem('${storageName}');
+				if (theme) {
+					const parsed = JSON.parse(theme);
+					if (parsed.state?.theme === 'dark') {
+						document.documentElement.classList.add('dark');
+					} else {
+						document.documentElement.classList.remove('dark');
+					}
+				}
+			} catch (e) {
+				// localStorage 접근 실패 시 무시
+			}
+		})();
+	`.trim();
+};
+
 export const useTheme = create<ThemeState>()(
 	persist(
 		(set) => ({
