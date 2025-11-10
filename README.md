@@ -40,6 +40,9 @@ yarn dev
 - `yarn start`: 생성된 빌드 파일 기반 실행
 - `yarn lint`: ESLint 포맷팅 검사
 - `yarn lint:fix`: ESLint 포맷팅 자동변경
+- `test:run: 유닛,통합 테스트 실행`,
+- `test:ui: 유팃,통합 테스트 상세 결과 로컬 브라우저 실행`,
+- `test:coverage: 유닛,통합 테스트 커버리지 리포트 생성`
 
 ## 🗂️ 프로젝트 구조
 
