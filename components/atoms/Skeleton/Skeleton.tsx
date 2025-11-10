@@ -25,5 +25,8 @@ export const Skeleton = ({ type, className, ...props }: SkeletonProps) => {
 					</div>
 				</div>
 			);
+
+		default:
+			return <SkeletonComponent className={cn('rounded-md', className)} {...props} />;
 	}
 };
