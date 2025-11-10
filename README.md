@@ -45,7 +45,7 @@ yarn dev
 
 ```
 
-
+├── .vscode                  # vscode 에디터 설정 (파일저장시 eslint 적용)
 ├── app/                     # App
 │   ├── globals.css          # 전역 스타일
 │   ├── layout.tsx           # 전역 레이아웃
@@ -57,6 +57,7 @@ yarn dev
 │   ├── atoms/               # Atoms: 가장 작은 단위의 컴포넌트
 │   ├── molecule/            # Molecule: atom으로 이루어진 컴포넌트,
 │   ├── organisms/           # Organisms: molecule 또는 atom이 다수로 이루어진 컴포넌트
+│   ├── templates/           # templates: Organisms 이 다수 또는 레이아웃관련 컴포넌트
 │   └── ui/                  # Ui: Shadcn ui CLI 입력으로 설치시 자동생성 파일
 │       └── [Feature]
 │             ├── Feature          # 컴포넌트 정의
